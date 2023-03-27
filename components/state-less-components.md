@@ -50,6 +50,20 @@ class MainPage : Component
 ```
 {% endcode %}
 
+You can also pass the title to the Constructor:
+
+{% code lineNumbers="true" %}
+```csharp
+class MainPage : Component
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("Home Page");
+    }
+}
+```
+{% endcode %}
+
 3\. Every component must override the Render method and returns the visual tree of the component
 
 5\. The ContentPage visual node pairs with the ContentPage native control.
