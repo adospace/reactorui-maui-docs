@@ -50,11 +50,27 @@ class MainPage : Component
 ```
 {% endcode %}
 
-3\. Every component must override the Render method and returns the visual tree of the component
+Line 3\. Every component must override the Render method and return the visual tree of the component
 
-5\. The ContentPage visual node pairs with the ContentPage native control.
+Line 5\. The ContentPage visual node pairs with the ContentPage native control.
 
-6\. Title property set the title of the page and updates the Title dependency property on the native page.
+Line 6\. The Title property sets the title of the page and updates the Title dependency property on the native page.
+
+You can also pass the title to the Constructor:
+
+{% code lineNumbers="true" %}
+```csharp
+class MainPage : Component
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("Home Page");
+    }
+}
+```
+{% endcode %}
+
+Line 5\. The title of the page is set by passing it to the `ContentPage` constructor.
 
 Running the app you should see an empty page titled "Home Page"
 

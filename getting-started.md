@@ -12,23 +12,23 @@ MauiReactor provides a convenient dotnet project template you can install to eas
 dotnet new install Reactor.Maui.TemplatePack
 ```
 
-To create a new project than just issue
+To create a new project then just issue
 
 ```
 dotnet new maui-reactor-startup -o my-new-project
 ```
 
-To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets too of course):
+To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets too of course: net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0):
 
 ```
 cd .\my-new-project\
-dotnet build -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0]
+dotnet build -f net7.0-android
 ```
 
 To run the app under the android platform execute the following command:
 
 ```
-dotnet build -t:Run -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0]
+dotnet build -t:Run -f net7.0-android
 ```
 
 You can run the ios app under MAC with the command:
@@ -58,12 +58,12 @@ dotnet tool install -g Reactor.Maui.HotReload
 MauiReactor hot reload can work in two different modes: **Simple** and **Full**
 
 {% hint style="info" %}
-**Simple Mode (Default)**: This allows you to hot-reload the app as you can edit/save changes to the project. It's faster than Full Mode because uses in-memory compilation but has some drawbacks:
+**Simple Mode (Default)**: This allows you to hot-reload the app as you save changes to the project. It's faster than Full Mode because it uses in-memory compilation but has some drawbacks:
 
 1\) Debugging is not supported: so for example, if you set a breakpoint it will not be hit after you hot-reload the app.\
 2\) It's unable to build XAML files; so if you're planning to link XAML files for resources (like styles, brushes, etc) you may need to switch to the Full mode.
 
-**Full Mode**: This mode uses the full-blow MS Build task to build the project after a file is changed/renamed/added. It's slower than Simple Mode but you can thoroughly debug your app even when you have hot-reloaded it. Also, it works better if you have XAML files or references to managed libraries in your project.
+**Full Mode**: This mode uses the full-blown MS Build task to build the project after a file is changed/renamed/added. It's slower than Simple Mode but you can thoroughly debug your app even when you have hot-reloaded it. Also, it works better if you have XAML files or references to managed libraries in your project.
 {% endhint %}
 
 To start the hot-reload console in **Simple Mode**:
@@ -82,18 +82,18 @@ dotnet-maui-reactor -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0
 
 After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p>Select MauiReactor based app template</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p>Select the MauiReactor based app template</p></figcaption></figure>
 
 ## Create a new project in Visual Studio 2022 for Mac
 
-Installed the MauiReactor template as explained above you should see the template in the project creation dialog:
+After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
 
 <figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption><p>Select Other -> Custom -> MauiReactor based app</p></figcaption></figure>
 
 {% hint style="warning" %}
 Hot-reloading of an Android application requires the presence of the **adb** tool.
 
-Check the adb tool is installed and working listing the device list with the command:
+Check the adb tool is installed and working by listing the device list with the command:
 
 `adb devices`
 
@@ -118,7 +118,7 @@ If the command is not recognized then you could install it with `brew`:
 
 ## Migrate from the default MAUI project template
 
-It's totally fine to start from a standard MAUI project template: below we'll see what it's required to move a brand-new project to use MauiReactor. This short guide helps also to make a port from an existing MVVM project to MauiReactor.
+It's totally fine to start from a standard MAUI project template: below we'll see what is required to migrate a brand new project to MauiReactor. This short guide also helps to make a port from an existing MVVM project to MauiReactor.
 
 #### Step 1
 
@@ -195,7 +195,7 @@ public static MauiApp CreateMauiApp()
 
 ## Best practices
 
-When the app is hot/reloaded, a new assembly is compiled on the fly and injected into the running app. This means that the new component lives in a different assembly from the original one. It's recommended to follow these best practices in order to avoid type mismatch issues:
+When the app is hot-reloaded, a new assembly is compiled on the fly and injected into the running app. This means that the new component lives in a different assembly from the original one. It's recommended to follow these best practices in order to avoid type mismatch issues:
 
 * Component state class should contain only public properties whose types are value-type or string.
 * If you need a component state with properties other than value-type/string (i.e. classes), host them in a separate assembly (project) so that it's not hot reloaded.
