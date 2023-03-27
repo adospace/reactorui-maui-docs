@@ -63,7 +63,7 @@ MauiReactor hot reload can work in two different modes: **Simple** and **Full**
 1\) Debugging is not supported: so for example, if you set a breakpoint it will not be hit after you hot-reload the app.\
 2\) It's unable to build XAML files; so if you're planning to link XAML files for resources (like styles, brushes, etc) you may need to switch to the Full mode.
 
-**Full Mode**: This mode uses the full-blow MS Build task to build the project after a file is changed/renamed/added. It's slower than Simple Mode but you can thoroughly debug your app even when you have hot-reloaded it. Also, it works better if you have XAML files or references to managed libraries in your project.
+**Full Mode**: This mode uses the full-blown MS Build task to build the project after a file is changed/renamed/added. It's slower than Simple Mode but you can thoroughly debug your app even when you have hot-reloaded it. Also, it works better if you have XAML files or references to managed libraries in your project.
 {% endhint %}
 
 To start the hot-reload console in **Simple Mode**:
@@ -118,7 +118,7 @@ If the command is not recognized then you could install it with `brew`:
 
 ## Migrate from the default MAUI project template
 
-It's totally fine to start from a standard MAUI project template: below we'll see what it's required to move a brand-new project to use MauiReactor. This short guide helps also to make a port from an existing MVVM project to MauiReactor.
+It's totally fine to start from a standard MAUI project template: below we'll see what is required to migrate a brand new project to MauiReactor. This short guide also helps to make a port from an existing MVVM project to MauiReactor.
 
 #### Step 1
 
@@ -195,7 +195,7 @@ public static MauiApp CreateMauiApp()
 
 ## Best practices
 
-When the app is hot/reloaded, a new assembly is compiled on the fly and injected into the running app. This means that the new component lives in a different assembly from the original one. It's recommended to follow these best practices in order to avoid type mismatch issues:
+When the app is hot-reloaded, a new assembly is compiled on the fly and injected into the running app. This means that the new component lives in a different assembly from the original one. It's recommended to follow these best practices in order to avoid type mismatch issues:
 
 * Component state class should contain only public properties whose types are value-type or string.
 * If you need a component state with properties other than value-type/string (i.e. classes), host them in a separate assembly (project) so that it's not hot reloaded.
