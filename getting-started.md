@@ -18,17 +18,17 @@ To create a new project then just issue
 dotnet new maui-reactor-startup -o my-new-project
 ```
 
-To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets too of course):
+To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets too of course: net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0):
 
 ```
 cd .\my-new-project\
-dotnet build -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0]
+dotnet build -f net7.0-android
 ```
 
 To run the app under the android platform execute the following command:
 
 ```
-dotnet build -t:Run -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0]
+dotnet build -t:Run -f net7.0-android
 ```
 
 You can run the ios app under MAC with the command:
@@ -58,7 +58,7 @@ dotnet tool install -g Reactor.Maui.HotReload
 MauiReactor hot reload can work in two different modes: **Simple** and **Full**
 
 {% hint style="info" %}
-**Simple Mode (Default)**: This allows you to hot-reload the app as you can edit/save changes to the project. It's faster than Full Mode because uses in-memory compilation but has some drawbacks:
+**Simple Mode (Default)**: This allows you to hot-reload the app as you save changes to the project. It's faster than Full Mode because it uses in-memory compilation but has some drawbacks:
 
 1\) Debugging is not supported: so for example, if you set a breakpoint it will not be hit after you hot-reload the app.\
 2\) It's unable to build XAML files; so if you're planning to link XAML files for resources (like styles, brushes, etc) you may need to switch to the Full mode.
