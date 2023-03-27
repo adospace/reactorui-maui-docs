@@ -82,18 +82,18 @@ dotnet-maui-reactor -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0
 
 After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p>Select MauiReactor based app template</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p>Select the MauiReactor based app template</p></figcaption></figure>
 
 ## Create a new project in Visual Studio 2022 for Mac
 
-Installed the MauiReactor template as explained above you should see the template in the project creation dialog:
+After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
 
 <figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption><p>Select Other -> Custom -> MauiReactor based app</p></figcaption></figure>
 
 {% hint style="warning" %}
 Hot-reloading of an Android application requires the presence of the **adb** tool.
 
-Check the adb tool is installed and working listing the device list with the command:
+Check the adb tool is installed and working by listing the device list with the command:
 
 `adb devices`
 
