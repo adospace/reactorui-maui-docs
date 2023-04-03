@@ -110,7 +110,7 @@ class CounterPage : Component<CounterPageState>
 
 <figure><img src="../.gitbook/assets/visualtree.drawio.png" alt=""><figcaption><p>All components are migrated/updated</p></figcaption></figure>
 
-Let's consider now this revisited code:
+Let's now consider this revisited code:
 
 ```csharp
 class CounterPageState
