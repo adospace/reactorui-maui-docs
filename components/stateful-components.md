@@ -185,7 +185,7 @@ class CounterPage : Component<CounterPageState>
 ```
 {% endcode %}
 
-Each time you click the button you should see the "Render" string output on the console of your IDE: this means, as explained, that a new Visual Tree has been created.
+Each time you click the button you should see the "Render" string output in the console of your IDE: this means, as explained, that a new Visual Tree has been created.
 
 Now, take for example that we want just to update the label text and nothing else. In this case, we can take full advantage of a MauiReactor feature that let us just update the native control _without_ requiring a complete refresh.
 
