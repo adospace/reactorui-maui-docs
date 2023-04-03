@@ -14,7 +14,7 @@ Before the component is removed from the page visual tree MauiReactor calls the 
 
 Every time a Component is "migrated" (i.e. it is preserved between a state change) the `OnPropsChanged()` overload is called.
 
-`OnMounted()` is the ideal point to initialize the component for example calling web services or querying the local database to get the required information to render it in the `Render()` method.
+`OnMounted()` is the ideal point to initialize the component, for example calling web services or querying the local database to get the required information to render it in the `Render()` method.
 
 For example, in this code we'll show an activity indicator while the Component is loading:
 
