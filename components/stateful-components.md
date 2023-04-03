@@ -10,7 +10,7 @@ A state is just a C# class with an empty constructor.
 
 When a Component is first displayed on the page, i.e. the MAUI widget is added to the page visual tree, MauiReactor calls the method `OnMounted()`.&#x20;
 
-Before the component is removed from the page visual tree MauiReactor calls the OnWillUnmount() method.
+Before the component is removed from the page visual tree MauiReactor calls the `OnWillUnmount()` method.
 
 Every time a Component is "migrated" (i.e. it is preserved between a state change) the `OnPropsChanged()` overload is called.
 
