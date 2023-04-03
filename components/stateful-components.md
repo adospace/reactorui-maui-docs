@@ -73,7 +73,7 @@ When you call `SetState` the component is marked as _Invalid_ and MauiReactor tr
 1. The component is marked as _Invalid_
 2. The parent and ancestors up to the root component of the page are all marked as _Invalid_
 3. MauiReactor triggers a refresh under the UI thread that creates a new Visual tree traversing the component tree
-4. All the components that are _Valid_ are re-used (maintained in the VisualTree) while the components marked as Invalid are discarded and a new version is created and its Render method called
+4. All the components that are _Valid_ are re-used (maintained in the VisualTree) while the components marked as _Invalid_ are discarded and a new version is created and its Render method called
 5. The new component version creates a new tree of child nodes/components that are compared with the tree linked to the old version of the component
 6. The old visual tree is compared to the new one: new nodes are created along with the native control (i.e. are mounted), removed nodes are eliminated along with the native control (i.e. are unmounted), and finally, nodes that are only changed (i.e. old and new nodes are of the same type) are migrated (i.e. native control is reused and its properties are updated according to properties of the new visual node)
 7. In the end, the native controls are added, removed, or updated
