@@ -62,7 +62,9 @@ and this is the resulting app:
 
 <figure><img src="../.gitbook/assets/ReactorUI_BusyDemo.gif" alt=""><figcaption></figcaption></figure>
 
-NOTE: Do not use constructors to pass parameters to the component, but public properties instead (take a look at the Custom Components documentation page).&#x20;
+{% hint style="info" %}
+Do not use constructors to pass parameters to the component, but public properties instead (take a look at the [Components Properties](component-properties.md) documentation page).
+{% endhint %}
 
 ## Updating the component State
 

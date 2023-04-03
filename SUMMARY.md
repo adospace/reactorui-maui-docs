@@ -7,6 +7,7 @@
 
 * [State-less Components](components/state-less-components.md)
 * [Stateful Components](components/stateful-components.md)
+* [Component Properties](components/component-properties.md)
 * [Component with children](components/component-with-children.md)
 * [Component Parameters](components/component-parameters.md)
 * [Wrap 3rd party controls](components/wrap-3rd-party-controls/README.md)
