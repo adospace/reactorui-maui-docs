@@ -226,4 +226,4 @@ Notice the changes to lines 15 and 20:
 
 Now if you click the button, no Render message should be written to the console output: this proves that we're updating the native Label `without` recreating the component.&#x20;
 
-Of course, this is not possible every time (for example when a change in the state should result in a change of the component tree) but when it is, should be considered to improve the responsiveness of the app.
+Of course, this is not possible every time (for example when a change in the state should result in a change of the component tree) but when it is, it should improve the responsiveness of the app.
