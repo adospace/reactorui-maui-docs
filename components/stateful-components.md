@@ -6,7 +6,7 @@ description: Describes what a stateful Component is and how to create it
 
 A stateful component is a component tied to a state class that is used to keep its "state" during its lifetime.
 
-A state is just c# class with an empty constructor.
+A state is just a C# class with an empty constructor.
 
 When a Component is first displayed on the page, i.e. the MAUI widget is added to the page visual tree, MauiReactor calls the method `OnMounted()`.&#x20;
 
