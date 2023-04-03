@@ -66,7 +66,7 @@ NOTE: Do not use constructors to pass parameters to the component, but public pr
 
 ## Updating the component State
 
-When you need to update the state of your component you have to call the `SetState` the method as shown above.&#x20;
+When you need to update the state of your component you have to call the `SetState` method as shown above.&#x20;
 
 When you call SetState the component is marked as _Invalid_ and MauiReactor triggers a refresh of the component. This happens following a series of steps in a fixed order
 
