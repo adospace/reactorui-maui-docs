@@ -148,7 +148,7 @@ If we click the button again, the `Label` component is found, again, in the new 
 
 <figure><img src="../.gitbook/assets/visualtree.drawio (2).png" alt=""><figcaption><p>Label is mounted</p></figcaption></figure>
 
-## Updating the state "without" trigger a refresh
+## Updating the state "without" triggering a refresh
 
 Re-creating the visual tree can be expensive, especially if the component tree is deep or the components contain many nodes; but sometimes you can update the state "without" triggering a refresh of the tree resulting in a pretty good performance improvement.
 
