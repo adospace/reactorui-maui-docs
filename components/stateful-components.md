@@ -144,7 +144,7 @@ When the button is clicked the variable `State.Counter` is updated to 1 so the c
 
 <figure><img src="../.gitbook/assets/visualtree.drawio (1).png" alt=""><figcaption><p>Label is unmounted (i.e. removed from visual tree) </p></figcaption></figure>
 
-If we click again the button, the Label component is found again in the new version of the Tree so it's mounted and a new instance of the Label component is created (along with the Native control that is created and added to the parent VStack control list).&#x20;
+If we click the button again, the Label component is found, again, in the new version of the Tree, so it's mounted and a new instance of the Label component is created (along with the Native control that is created and added to the parent VStack control list).&#x20;
 
 <figure><img src="../.gitbook/assets/visualtree.drawio (2).png" alt=""><figcaption><p>Label is mounted</p></figcaption></figure>
 
