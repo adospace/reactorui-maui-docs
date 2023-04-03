@@ -152,7 +152,7 @@ If we click the button again, the `Label` component is found, again, in the new 
 
 Re-creating the visual tree can be expensive, especially if the component tree is deep or the components contain many nodes; but sometimes you can update the state "without" triggering a refresh of the tree resulting in a pretty good performance improvement.
 
-For example, consider again the counter sample but adds a debug message that helps trace when the component is rendered/created (line 10):
+For example, consider the counter sample but with a debug message added that helps trace when the component is rendered/created (line 10):
 
 {% code lineNumbers="true" %}
 ```csharp
