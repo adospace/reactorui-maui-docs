@@ -140,7 +140,7 @@ class CounterPage : Component<CounterPageState>
 }
 ```
 
-When the button is clicked the variable State.Counter is updated to 1 so the component is re-rendered and the Label is umounted (i.e. removed from the visual tree) and native control is removed from the parent VStack Control list (i.e. de-allocated):
+When the button is clicked the variable `State.Counter` is updated to 1 so the component is re-rendered and the Label is umounted (i.e. removed from the visual tree) and native control is removed from the parent VStack Control list (i.e. de-allocated):
 
 <figure><img src="../.gitbook/assets/visualtree.drawio (1).png" alt=""><figcaption><p>Label is unmounted (i.e. removed from visual tree) </p></figcaption></figure>
 
