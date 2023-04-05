@@ -78,6 +78,12 @@ This is the command to start it in **Full Mode**:
 dotnet-maui-reactor -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0] --mode Full
 ```
 
+## .NET built-in hot-reload
+
+Since version 1.0.116 MauiReactor also supports .NET built-in hot-reload. This feature is enabled by default when you call the `EnableMauiReactorHotReload()` method on your application builder.
+
+To enable the hot-reload for MAUI projects and for an updated list of supported edits please look at the official documentation [here](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022).
+
 ## Create a new project in Visual Studio 2022
 
 After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
