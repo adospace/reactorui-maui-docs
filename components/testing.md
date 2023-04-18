@@ -50,9 +50,21 @@ Add the target framework `net7.0` (or the current one the app is targeting) and 
 &#x3C;/Project>
 </code></pre>
 
-This way the app project can be referenced in test project.
+This way the app project can be referenced in the test project.
 
-Now let's create a test project, and choose the framework you like most (MSTest, xUnit, nUnit etc), finally add a reference to the project to test.
+Now let's create a test project, and choose the framework you like most (MSTest, xUnit, nUnit, etc).
+
+As a final step, you have to reference the MAUI controls library in the test project adding the `<UseMaui>` header in the project definition:
+
+<pre class="language-xml"><code class="lang-xml">  &#x3C;PropertyGroup>
+    &#x3C;TargetFramework>net7.0&#x3C;/TargetFramework>
+    &#x3C;ImplicitUsings>enable&#x3C;/ImplicitUsings>
+    &#x3C;Nullable>enable&#x3C;/Nullable>
+<strong>    &#x3C;UseMaui>true&#x3C;/UseMaui>
+</strong>
+    &#x3C;IsPackable>false&#x3C;/IsPackable>
+  &#x3C;/PropertyGroup>
+</code></pre>
 
 ## Test components
 
