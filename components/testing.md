@@ -36,9 +36,9 @@ Open your project definition; it should be something like the following:
 
 Add the target framework `net7.0` (or the current one the app is targeting) and put a condition on the `OutputType` header so that the MSBuild task doesn't produce an exe under the plain `net7.0` framework.
 
-<pre class="language-xml"><code class="lang-xml">&#x3C;Project Sdk="Microsoft.NET.Sdk">
+<pre class="language-xml" data-line-numbers><code class="lang-xml">&#x3C;Project Sdk="Microsoft.NET.Sdk">
   &#x3C;PropertyGroup>
-<strong>    &#x3C;TargetFrameworks>net7.0;net7.0-android;net7.0-ios;net7.0-maccatalyst&#x3C;/TargetFrameworks>
+<strong>    &#x3C;TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst;net7.0&#x3C;/TargetFrameworks>
 </strong>    &#x3C;TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0&#x3C;/TargetFrameworks>
 <strong>    &#x3C;OutputType Condition="'$(TargetFramework)' != 'net7.0'">Exe&#x3C;/OutputType>
 </strong>    &#x3C;RootNamespace>KeeMind&#x3C;/RootNamespace>
@@ -49,6 +49,10 @@ Add the target framework `net7.0` (or the current one the app is targeting) and 
   &#x3C;/PropertyGroup>
 &#x3C;/Project>
 </code></pre>
+
+{% hint style="warning" %}
+Be sure to add `net7.0` (line 3) as the last target framework otherwise Visual Studio for Mac won't load correctly the project
+{% endhint %}
 
 This way the app project can be referenced in the test project.
 
