@@ -2,7 +2,7 @@
 description: This article explains how navigate between pages
 ---
 
-# Navigation
+# NavigationPage
 
 You can navigate between pages (i.e. between root components) using the following extensions API:
 
@@ -63,7 +63,7 @@ public class ChildPageComponent : Component
 }
 ```
 
-<figure><img src="../.gitbook/assets/ReactorUI_NavigationDemo.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ReactorUI_NavigationDemo.gif" alt=""><figcaption></figcaption></figure>
 
 ## Passing data between pages
 
@@ -177,7 +177,7 @@ private void OnValueSetFromChilPage(int newValue)
 }
 ```
 
-<figure><img src="../.gitbook/assets/ReactorUI_NavicationParamsDemo.gif" alt=""><figcaption><p>Resulting app behavior </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ReactorUI_NavicationParamsDemo.gif" alt=""><figcaption><p>Resulting app behavior </p></figcaption></figure>
 
 ## Handle the back button click event
 

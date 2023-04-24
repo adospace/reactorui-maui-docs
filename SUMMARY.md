@@ -10,6 +10,9 @@
 * [Component Properties](components/component-properties.md)
 * [Component with children](components/component-with-children.md)
 * [Component Parameters](components/component-parameters.md)
+* [Navigation](components/navigation/README.md)
+  * [NavigationPage](components/navigation/navigation.md)
+  * [Shell](components/navigation/shell.md)
 * [Wrap 3rd party controls](components/wrap-3rd-party-controls/README.md)
   * [Lottie animations](components/wrap-3rd-party-controls/lottie-animations.md)
 * [Accessing native controls](components/accessing-native-controls.md)
@@ -23,8 +26,6 @@
 
 ## Deep dives
 
-* [Navigation](deep-dives/navigation.md)
-* [Shell](deep-dives/shell.md)
 * [Native tree and Visual tree](deep-dives/native-tree-and-visual-tree.md)
 * [Dependency injection](deep-dives/dependency-injection.md)
 * [Working with the GraphicsView](deep-dives/working-with-the-graphicsview.md)

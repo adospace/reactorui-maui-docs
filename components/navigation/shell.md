@@ -47,7 +47,7 @@ class MainPage : Component
 
 This is the resulting behavior:
 
-<figure><img src="../.gitbook/assets/MauiReactor_Shell1.gif" alt=""><figcaption><p>Shell with FlyouItems</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/MauiReactor_Shell1.gif" alt=""><figcaption><p>Shell with FlyouItems</p></figcaption></figure>
 
 The Shell can have many different kinds of children like FlyoutItem, ShellContent, Tab, ManuItem, etc. (for a full list of combinations please take a look at the official documentation).
 
@@ -114,7 +114,7 @@ public override VisualNode Render()
 
 and this is the resulting effect:
 
-<figure><img src="../.gitbook/assets/MauiReactor_Shell2.gif" alt=""><figcaption><p>Navigating between pages using routes</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/MauiReactor_Shell2.gif" alt=""><figcaption><p>Navigating between pages using routes</p></figcaption></figure>
 
 It's not required that you declare routes for all of your pages using items of the shell. You can register a route also using the Routing.RegisterRoute\<Component>() method as shown in the below example:
 
@@ -169,7 +169,7 @@ class Page2 : Component
 
 In MauiReactor you have to register a route for a Component that renders to a Page as shown in line 5 above.
 
-<figure><img src="../.gitbook/assets/MauiReactor_Shell3.gif" alt=""><figcaption><p>Shell custom routes</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/MauiReactor_Shell3.gif" alt=""><figcaption><p>Shell custom routes</p></figcaption></figure>
 
 ## Passing parameters to pages
 
@@ -236,4 +236,4 @@ class Page2 : Component<Page2State, Page2Props>
 }
 ```
 
-<figure><img src="../.gitbook/assets/MauiReactor_Shell4.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/MauiReactor_Shell4.gif" alt=""><figcaption></figcaption></figure>

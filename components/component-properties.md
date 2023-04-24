@@ -86,5 +86,5 @@ public class BusyPageComponent : RxComponent<BusyPageState>
 ```
 
 {% hint style="info" %}
-If you need to set properties of components hosted on a different page you should use a Props object (see [Navigation](../deep-dives/navigation.md))
+If you need to set properties of components hosted on a different page you should use a Props object (see [Navigation](navigation/navigation.md))
 {% endhint %}
