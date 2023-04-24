@@ -24,6 +24,7 @@
 ## Deep dives
 
 * [Navigation](deep-dives/navigation.md)
+* [Shell](deep-dives/shell.md)
 * [Native tree and Visual tree](deep-dives/native-tree-and-visual-tree.md)
 * [Dependency injection](deep-dives/dependency-injection.md)
 * [Working with the GraphicsView](deep-dives/working-with-the-graphicsview.md)
