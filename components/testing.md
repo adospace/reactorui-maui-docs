@@ -51,7 +51,7 @@ Add the target framework `net7.0` (or the current one the app is targeting) and 
 </code></pre>
 
 {% hint style="warning" %}
-Be sure to add `net7.0` framework (line 3) as the last one otherwise Visual Studio for Mac won't load correctly the project
+Be sure to add `net7.0` framework (line 3) as the last one otherwise Visual Studio for Mac won't load the project
 {% endhint %}
 
 This way the app project can be referenced in the test project.
