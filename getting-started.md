@@ -94,7 +94,7 @@ After you have installed the dotnet project template you should see it in the Vi
 
 After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption><p>Select Other -> Custom -> MauiReactor based app</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Select Other -> Custom -> MauiReactor based app</p></figcaption></figure>
 
 {% hint style="warning" %}
 Hot-reloading of an Android application requires the presence of the **adb** tool.
