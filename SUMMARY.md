@@ -14,6 +14,7 @@
 * [Navigation](components/navigation/README.md)
   * [NavigationPage](components/navigation/navigation.md)
   * [Shell](components/navigation/shell.md)
+  * [Back button](components/navigation/back-button.md)
 * [Wrap 3rd party controls](components/wrap-3rd-party-controls/README.md)
   * [Lottie animations](components/wrap-3rd-party-controls/lottie-animations.md)
 * [Accessing native controls](components/accessing-native-controls.md)

@@ -26,7 +26,7 @@ public class MainPageComponent : Component
                 new Button("Move To Page")
                     .VCenter()
                     .HCenter()
-                    .OnClick(OpenChildPage)
+                    .OnClicked(OpenChildPage)
             }
             .Title("Main Page")
         };
@@ -51,7 +51,7 @@ public class ChildPageComponent : Component
             new Button("Back")
                 .VCenter()
                 .HCenter()
-                .OnClick(GoBack)
+                .OnClicked(GoBack)
         }
         .Title("Child Page");
     }
@@ -88,7 +88,7 @@ public class MainPageComponent : Component<MainPageComponentState>
                     new Label($"Value: {State.Value}")
                         .FontSize(NamedSize.Large),
                     new Button("Move To Page")
-                        .OnClick(OpenChildPage)
+                        .OnClicked(OpenChildPage)
                 }
                 .VCenter()
                 .HCenter()
@@ -139,7 +139,7 @@ public class ChildPageComponent : Component<ChildPageComponentState, ChildPageCo
                     .OnAfterTextChanged(_=>SetState(s => s.Value = int.Parse(_)))
                     .Keyboard(Keyboard.Numeric),
                 new Button("Back")
-                    .OnClick(GoBack)
+                    .OnClicked(GoBack)
             }
             .VCenter()
             .HCenter()
@@ -178,25 +178,6 @@ private void OnValueSetFromChilPage(int newValue)
 ```
 
 <figure><img src="../../.gitbook/assets/ReactorUI_NavicationParamsDemo.gif" alt=""><figcaption><p>Resulting app behavior </p></figcaption></figure>
-
-## Handle the back button click event
-
-To handle back button behavior you have to provide a call-back action in the `OnBackButtonPressed`
-
-```csharp
-new ContentPage()
-    .OnBackButtonPressed(()=>...);
-```
-
-You can also set visibility, icon source etc directly to the Page, like this:
-
-```csharp
-new ContentPage()
-    .BackButtonIsVisible(true/false)
-    .BackButtonIsEnabled(true/false)
-    .BackButtonText(...)
-    .BackButtonIcon(...)
-```
 
 ## Handle notifications from pages when appearing or disappearing
 
