@@ -17,6 +17,7 @@
   * [Back button](components/navigation/back-button.md)
 * [Wrap 3rd party controls](components/wrap-3rd-party-controls/README.md)
   * [Lottie animations](components/wrap-3rd-party-controls/lottie-animations.md)
+  * [Provide DataTemplate to native controls](components/wrap-3rd-party-controls/provide-datatemplate-to-native-controls.md)
 * [Accessing native controls](components/accessing-native-controls.md)
 * [Animation](components/animation/README.md)
   * [Property-Base animation](components/animation/property-base-animation.md)
