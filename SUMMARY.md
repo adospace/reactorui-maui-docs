@@ -45,3 +45,7 @@
 * [Does this support ObservableCollection for CollectionView?](q-and-a/does-this-support-observablecollection-for-collectionview.md)
 * [Do we need to add states to create simple animations such as ScaleTo, FadeTo, etc on tap?](q-and-a/do-we-need-to-add-states-to-create-simple-animations-such-as-scaleto-fadeto-etc-on-tap.md)
 * [How to deal with custom dialogs/popups?](q-and-a/how-to-deal-with-custom-dialogs-popups.md)
+
+***
+
+* [How to create a Menu/ContextMenu?](how-to-create-a-menu-contextmenu.md)
