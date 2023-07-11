@@ -8,7 +8,7 @@ A stateful component is a component tied to a state class that is used to keep i
 
 A state is just a C# class with an empty constructor.
 
-When a Component is first displayed on the page, i.e. the MAUI widget is added to the page visual tree, MauiReactor calls the method `OnMounted()`.&#x20;
+When a Component is first displayed on the page, i.e. the MAUI widget is added to the page visual tree, MauiReactor calls the method `OnMounted()`.
 
 Before the component is removed from the page visual tree MauiReactor calls the `OnWillUnmount()` method.
 
@@ -60,15 +60,15 @@ public class BusyPageComponent : Component<BusyPageState>
 
 and this is the resulting app:
 
-<figure><img src="../.gitbook/assets/ReactorUI_BusyDemo.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ReactorUI_BusyDemo.gif" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Do not use constructors to pass parameters to the component, but public properties instead (take a look at the [Components Properties](component-properties.md) documentation page).
+Do not use constructors to pass parameters to the component, but public properties instead (take a look at the [Components Properties](../component-properties.md) documentation page).
 {% endhint %}
 
 ## Updating the component State
 
-When you need to update the state of your component you have to call the `SetState` method as shown above.&#x20;
+When you need to update the state of your component you have to call the `SetState` method as shown above.
 
 When you call `SetState` the component is marked as _Invalid_ and MauiReactor triggers a refresh of the component. This happens following a series of steps in a fixed order
 
@@ -110,7 +110,7 @@ class CounterPage : Component<CounterPageState>
 }
 ```
 
-<figure><img src="../.gitbook/assets/visualtree.drawio.png" alt=""><figcaption><p>All components are migrated/updated</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/visualtree.drawio.png" alt=""><figcaption><p>All components are migrated/updated</p></figcaption></figure>
 
 Let's now consider this revisited code:
 
@@ -144,11 +144,11 @@ class CounterPage : Component<CounterPageState>
 
 When the button is clicked the variable `State.Counter` is updated to 1 so the component is re-rendered and the `Label` is umounted (i.e. removed from the visual tree) and the native control is removed from the parent `VStack` Control list (i.e. de-allocated):
 
-<figure><img src="../.gitbook/assets/visualtree.drawio (1).png" alt=""><figcaption><p>Label is unmounted (i.e. removed from visual tree) </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/visualtree.drawio (1).png" alt=""><figcaption><p>Label is unmounted (i.e. removed from visual tree)</p></figcaption></figure>
 
-If we click the button again, the `Label` component is found, again, in the new version of the Tree, so it's mounted and a new instance of the `Label` component is created (along with the Native control that is created and added to the parent `VStack` control list).&#x20;
+If we click the button again, the `Label` component is found, again, in the new version of the Tree, so it's mounted and a new instance of the `Label` component is created (along with the Native control that is created and added to the parent `VStack` control list).
 
-<figure><img src="../.gitbook/assets/visualtree.drawio (2).png" alt=""><figcaption><p>Label is mounted</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/visualtree.drawio (2).png" alt=""><figcaption><p>Label is mounted</p></figcaption></figure>
 
 ## Updating the state "without" triggering a refresh
 
@@ -224,8 +224,8 @@ class CounterPage : Component&#x3C;CounterPageState>
 Notice the changes to lines 15 and 20:
 
 15: we use an overload of the `Label()` class that accepts a `Func<string>`\
-20: secondly we call `SetState(..., invalidateComponent: false)`&#x20;
+20: secondly we call `SetState(..., invalidateComponent: false)`
 
-Now if you click the button, no Render message should be written to the console output: this proves that we're updating the native Label `without` recreating the component.&#x20;
+Now if you click the button, no Render message should be written to the console output: this proves that we're updating the native Label `without` recreating the component.
 
 Of course, this is not possible every time (for example when a change in the state should result in a change of the component tree) but when it is, it should improve the responsiveness of the app.
