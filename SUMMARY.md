@@ -27,6 +27,7 @@
   * [CanvasView control](components/graphics/canvasview-control.md)
 * [Window](components/window.md)
 * [Testing](components/testing.md)
+* [XAML Integration](components/xaml-integration.md)
 
 ## Deep dives
 
