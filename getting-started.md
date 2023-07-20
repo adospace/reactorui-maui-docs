@@ -1,5 +1,5 @@
 ---
-description: Describes how setup a MauiReactor project
+description: Describes how to setup a MauiReactor project
 ---
 
 # Getting Started
@@ -12,7 +12,7 @@ MauiReactor provides a convenient dotnet project template you can install to eas
 dotnet new install Reactor.Maui.TemplatePack
 ```
 
-To create a new project then just issue
+To create a new project just issue
 
 ```
 dotnet new maui-reactor-startup -o my-new-project
@@ -151,7 +151,7 @@ global using Microsoft.Maui.Graphics;
 global using MauiControls = Microsoft.Maui.Controls;
 ```
 
-this will avoid problems with namespacing conflicts between MAUI and MauiReactor.
+This will avoid problems with namespacing conflicts between MAUI and MauiReactor.
 
 #### Step 2
 
