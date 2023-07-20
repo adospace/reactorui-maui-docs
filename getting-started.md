@@ -151,7 +151,7 @@ global using Microsoft.Maui.Graphics;
 global using MauiControls = Microsoft.Maui.Controls;
 ```
 
-this will avoid problems with namespacing conflicts between MAUI and MauiReactor.
+This will avoid problems with namespacing conflicts between MAUI and MauiReactor.
 
 #### Step 2
 
