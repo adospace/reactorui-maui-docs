@@ -7,7 +7,7 @@ description: Describes how to create stateful components within a single functio
 MauiReactor also features a nice ability to wrap a stateful component within a function.
 
 {% hint style="info" %}
-Inline components are somewhat inspired by React hooks so you can notice some similarities if you already have experience with them.
+Inline components are somewhat inspired by React hooks so you may notice some similarities if you already have experience with them.
 {% endhint %}
 
 For example, consider that we want to create a custom Entry control that works like the Material entry widget:
