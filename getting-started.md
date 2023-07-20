@@ -12,7 +12,7 @@ MauiReactor provides a convenient dotnet project template you can install to eas
 dotnet new install Reactor.Maui.TemplatePack
 ```
 
-To create a new project then just issue
+To create a new project just issue
 
 ```
 dotnet new maui-reactor-startup -o my-new-project
