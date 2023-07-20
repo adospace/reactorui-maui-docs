@@ -1,5 +1,5 @@
 ---
-description: Describes how setup a MauiReactor project
+description: Describes how to setup a MauiReactor project
 ---
 
 # Getting Started
