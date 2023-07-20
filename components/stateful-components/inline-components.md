@@ -1,5 +1,5 @@
 ---
-description: Describe how to create stateful components within a single function
+description: Describes how to create stateful components within a single function
 ---
 
 # Inline Components
