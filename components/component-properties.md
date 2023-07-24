@@ -9,7 +9,7 @@ When creating a component you almost always need to pass props (or parameters/pr
 Take for example this component that implements an activity indicator with a label:
 
 ```csharp
-public class BusyComponent : RxComponent
+public class BusyComponent : Component
 {
     private string _message;
     private bool _isBusy;
@@ -28,11 +28,11 @@ public class BusyComponent : RxComponent
 
     public override VisualNode Render()
     {
-        return new RxStackLayout()
+        return new StackLayout()
         {
-            new RxActivityIndicator()
+            new ActivityIndicator()
                 .IsRunning(_isBusy),
-            new RxLabel()
+            new Label()
                 .Text(_message)
         };
     }
@@ -47,7 +47,7 @@ public class BusyPageState : IState
     public bool IsBusy { get; set; }
 }
 
-public class BusyPageComponent : RxComponent<BusyPageState>
+public class BusyPageComponent : Component<BusyPageState>
 {
     protected override void OnMounted()
     {
@@ -67,7 +67,7 @@ public class BusyPageComponent : RxComponent<BusyPageState>
 
     public override VisualNode Render()
     {
-        return new RxContentPage()
+        return new ContentPage()
         {
             State.IsBusy ?
             new BusyComponent()
@@ -79,7 +79,7 @@ public class BusyPageComponent : RxComponent<BusyPageState>
     }
 
     private VisualNode RenderPage()
-        => new RxLabel("Done!")
+        => new Label("Done!")
                 .VCenter()
                 .HCenter();
 }
