@@ -58,7 +58,7 @@ public class WrapGrid : Component
 
 ```
 
-We can add a `ColumnCount` property and simple logic to arrange and wraps any children passed to the component like this:
+We can add a `ColumnCount` property and simple logic to arrange and wrap any children passed to the component like this:
 
 ```csharp
 public class WrapGrid : Component
