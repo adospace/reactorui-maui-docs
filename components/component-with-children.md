@@ -6,7 +6,7 @@ description: Describes how to create components with children
 
 A component class derives from `Component` and must implement the `Render()` method. Inside it, local fields, properties, and of course State properties of stateful components are directly accessible and can be used to compose the resulting view.
 
-Components can also render their children by calling the base method `Children()`. This opens up a powerful feature that can be useful if we want to build a component that arranges in some way its children.
+Components can also render their children by calling the base method `Children()`. This opens up a powerful feature that can be useful if we want to build a component that arranges its children in some way.
 
 Say we want, for example, to create a component that arranges its children within a customizable grid, like this:
 
