@@ -117,4 +117,4 @@ You can pass any type to it but, of course, the beauty of the solution is to tak
 
 The rest of the function is more or less the same as the content of the Render method.
 
-Inline Components are a perfect choice to render small components that have simple states, you can for example put it in generic static class that provide general theming functions to the app.
+Inline Components are a perfect choice to render small components that have simple states, you can for example put it in a generic static class that provide general theming functions to the app.
