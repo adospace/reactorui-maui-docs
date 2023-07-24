@@ -12,7 +12,7 @@ Say we want, for example, to create a component that arranges its children withi
 
 <figure><img src="../.gitbook/assets/ReactorUI_ComponentChildrenDemo.gif" alt=""><figcaption></figcaption></figure>
 
-As starting, let's create a component that builds our page:
+To start, let's create a component that builds our page:
 
 ```csharp
 public class PageComponent : Component
