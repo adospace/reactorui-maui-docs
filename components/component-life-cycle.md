@@ -13,7 +13,7 @@ The key events in the life of a component are:
 * **Mounted** (aka Created) is raised after the component is created and added to the logical tree.\
   It's the ideal place to initialize the state of the component, directly setting state properties or calling an external web service that will update the state. You can think of this event more or less like a class constructor.
 * **WillUnmount** (aka Removing) is raised when the component is about to be removed from the logical tree. It's the perfect place to unsubscribe from service events or deallocate unmanaged resources (for example, use this overload to unsubscribe from a web socket event in a chat app).
-* **PropsChanged** (aka Migrated) is raised when the component has been migrated to the next logical tree. It's the ideal place to verify whether is required to update the state. Often this overload contains code similar to the code used for the Mounted event.
+* **PropsChanged** (aka Migrated) is raised when the component has been migrated to the next logical tree. It's the ideal place to verify whether it is required to update the state. Often this overload contains code similar to the code used for the Mounted event.
 
 {% hint style="warning" %}
 Each of these events is called under the main UI dispatcher thread so be sure to put any expensive call (for example calls to the network or file system) in a separate task using the async/await pattern.
@@ -145,7 +145,7 @@ Running this code you should see an app like this:
 
 <figure><img src="../.gitbook/assets/image (3).png" alt="" width="327"><figcaption><p>Sample app tracing component life-cycle events </p></figcaption></figure>
 
-Playing a bit with it you should be able to see tracing lines like the following that could help to understand how events are sequenced:
+Playing a bit with it, you should be able to see tracing lines like the following that could help to understand how events are sequenced:
 
 ```
 [0:] [DecrementalCounter] OnMounted()
