@@ -1,5 +1,5 @@
 ---
-description: Describe how to create stateful components within a single function
+description: Describes how to create stateful components within a single function
 ---
 
 # Inline Components
@@ -7,7 +7,7 @@ description: Describe how to create stateful components within a single function
 MauiReactor also features a nice ability to wrap a stateful component within a function.
 
 {% hint style="info" %}
-Inline components are somewhat inspired to React hooks so you can notice some similarities if you already have experience with them.
+Inline components are somewhat inspired by React hooks so you may notice some similarities if you already have experience with them.
 {% endhint %}
 
 For example, consider that we want to create a custom Entry control that works like the Material entry widget:
@@ -117,4 +117,4 @@ You can pass any type to it but, of course, the beauty of the solution is to tak
 
 The rest of the function is more or less the same as the content of the Render method.
 
-Inline Component is a perfect choice to render small components that have simple states, you can for example put it in generic static class that provide general theming functions to the app.
+Inline Components are a perfect choice to render small components that have simple states, you can for example put it in a generic static class that provides general theming functions to the app.
