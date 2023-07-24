@@ -22,13 +22,17 @@ Consider this feature if you are facing the following scenarios:
 Do not mix MVU and MVVM code/approaches but use the dependency inject to share services.
 {% endhint %}
 
+Let's start adding MauiReactor nuget package to the project:
+
+`dotnet add package Reactor.Maui --version 1.0.138`
+
 To host a MauiReactor component on your page please use the `ComponenHost` class like it's shown in the following snippet code:
 
 <pre class="language-xml" data-line-numbers><code class="lang-xml">&#x3C;?xml version="1.0" encoding="utf-8" ?>
 &#x3C;ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:MauiReactor="clr-namespace:MauiReactor.Integration;assembly=MauiReactor"
-             xmlns:components="clr-namespace:IntegrationTest.Components"
+<strong>             xmlns:MauiReactor="clr-namespace:MauiReactor.Integration;assembly=MauiReactor"
+</strong>             xmlns:components="clr-namespace:IntegrationTest.Components"
              x:Class="IntegrationTest.MainPage">
 
     &#x3C;ScrollView>
@@ -71,7 +75,18 @@ To host a MauiReactor component on your page please use the `ComponenHost` class
 
 </code></pre>
 
+In line 4, you have to specify the MauiReactor namespace and assembly containing the `ComponentHost` class.
+
 In lines 33 and 34 we're going to create an instance of the control `ComponentHost` passing the `Counter` component type as a parameter: the `ComponentHost` class will instantiate and run the component.
+
+Of course the same can be done in code:
+
+```csharp
+var componentHost = new MauiReactor.ComponentHost
+{
+    Component = typeof(Counter)
+}
+```
 
 Another way to integrate a MauiReactor component is to navigate to another page passing a component as its root using the overload of the `Navigation` class `Navigation.PushAsync<Component-Type>()`
 
