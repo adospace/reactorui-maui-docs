@@ -4,7 +4,7 @@ description: Describes how to specify properties for a component
 
 # Component Properties
 
-When creating a component you almost always need to pass props (or parameters/property values) in order to customize its appearance or behavior. In ReactorUI you can use plain properties.
+When creating a component you almost always need to pass props (or parameters/property values) in order to customize its appearance or behavior. In MauiReactor you can use plain properties.
 
 Take for example this component that implements an activity indicator with a label:
 
