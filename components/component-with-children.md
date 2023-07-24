@@ -6,13 +6,13 @@ description: Describes how to create components with children
 
 A component class derives from `Component` and must implement the `Render()` method. Inside it, local fields, properties, and of course State properties of stateful components are directly accessible and can be used to compose the resulting view.
 
-Components can also render its children calling the base method `Children()`. This opens to a powerful feature that can be useful if we want to build a component that arranges in some way its children.
+Components can also render their children by calling the base method `Children()`. This opens up a powerful feature that can be useful if we want to build a component that arranges its children in some way.
 
 Say we want, for example, to create a component that arranges its children within a customizable grid, like this:
 
 <figure><img src="../.gitbook/assets/ReactorUI_ComponentChildrenDemo.gif" alt=""><figcaption></figcaption></figure>
 
-As starting, let's create a component that builds our page:
+To start, let's create a component that builds our page:
 
 ```csharp
 public class PageComponent : Component
@@ -58,7 +58,7 @@ public class WrapGrid : Component
 
 ```
 
-We can add a `ColumnCount` property and simple logic to arrange and wraps any children passed to the component like this:
+We can add a `ColumnCount` property and simple logic to arrange and wrap any children passed to the component like this:
 
 ```csharp
 public class WrapGrid : Component
