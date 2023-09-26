@@ -52,4 +52,30 @@ private void OnSizeChanged(object sender, EventArgs args)
 
 ```
 
-This way you can access all the properties of the window and receive all the callback you need attaching events like the SizeChanged.
+This way you can access all the properties of the window and receive all the callbacks you need attaching events like the SizeChanged.
+
+## Application lifetime events
+
+You can handle application lifetime events attaching to the specific handler as shown below:
+
+```csharp
+class MainPage : Component
+{
+    public override VisualNode Render()
+    {
+        return new Window
+        {
+            new ContentPage
+            {
+            }
+        }
+        .OnCreated(() => Debug.WriteLine("Created"))
+        .OnActivated(() => Debug.WriteLine("Activated"))
+        .OnDeactivated(() => Debug.WriteLine("Deactivated"))
+        .OnStopped(() => Debug.WriteLine("Stopped"))
+        .OnResumed(() => Debug.WriteLine("Resumed"))
+        .OnDestroying(() => Debug.WriteLine("Destroying"))
+        ;
+    }
+}
+```
