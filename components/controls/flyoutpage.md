@@ -7,7 +7,7 @@ description: This page describes how to create a FlyoutPage
 > The .NET Multi-platform App UI (.NET MAUI) [FlyoutPage](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.flyoutpage) is a page that manages two related pages of information – a flyout page that presents items, and a detail page that presents details about items on the flyout page.
 
 Doc: [https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage)\
-Sample: [https://github.com/adospace/mauireactor-samples/tree/main/Controls/FlyoutPageTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
+Sample: [https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
 
 The following code shows how you can create a FlyoutPage in MauiReactor.&#x20;
 
