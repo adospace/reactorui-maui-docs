@@ -34,6 +34,7 @@
   * [CollectionView](components/controls/collectionview/README.md)
     * [Interactions](components/controls/collectionview/interactions.md)
     * [Layout](components/controls/collectionview/layout.md)
+    * [Selection](components/controls/collectionview/selection.md)
 
 ## Deep dives
 
