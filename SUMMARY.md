@@ -30,6 +30,7 @@
 * [XAML Integration](components/xaml-integration.md)
 * [Controls](components/controls/README.md)
   * [RadioButton](components/controls/radiobutton.md)
+  * [FlyoutPage](components/controls/flyoutpage.md)
 
 ## Deep dives
 

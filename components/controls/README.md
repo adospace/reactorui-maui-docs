@@ -17,6 +17,20 @@ This is the official list of controls:\
 
 ## Pages
 
+### FlyoutPage
+
+> The .NET Multi-platform App UI (.NET MAUI) [FlyoutPage](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.flyoutpage) is a page that manages two related pages of information – a flyout page that presents items, and a detail page that presents details about items on the flyout page.
+
+Official documentation:\
+&#x20;[https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage)\
+
+
+MauiReactor documentation:\
+[https://github.com/adospace/mauireactor-samples/tree/main/Controls/FlyoutPageTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
+
+MauiReactor sample app:\
+[https://github.com/adospace/mauireactor-samples/tree/main/Controls/FlyoutPageTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
+
 ## Views
 
 
