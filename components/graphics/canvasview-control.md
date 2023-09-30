@@ -42,7 +42,7 @@ new CanvasView
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Just a box inside a CanvasView</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Just a box inside a CanvasView</p></figcaption></figure>
 
 As you can notice, we have also added a margin to distantiate it from the container (the ContentPage).
 
@@ -65,7 +65,7 @@ new CanvasView
 }
 ```
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>A Column layout with equally spaced children</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>A Column layout with equally spaced children</p></figcaption></figure>
 
 Column and Row layouts are the most common way to arrange CanvasView elements, and render children in a way much similar to MAUI Grid layout.&#x20;
 

@@ -143,7 +143,7 @@ class DecrementalCounter : Component
 
 Running this code you should see an app like this:
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="327"><figcaption><p>Sample app tracing component life-cycle events </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="327"><figcaption><p>Sample app tracing component life-cycle events</p></figcaption></figure>
 
 Playing a bit with it, you should be able to see tracing lines like the following that could help to understand how events are sequenced:
 

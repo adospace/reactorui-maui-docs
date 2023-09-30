@@ -28,6 +28,8 @@
 * [Window](components/window.md)
 * [Testing](components/testing.md)
 * [XAML Integration](components/xaml-integration.md)
+* [Controls](components/controls/README.md)
+  * [RadioButton](components/controls/radiobutton.md)
 
 ## Deep dives
 
