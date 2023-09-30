@@ -33,6 +33,7 @@
   * [FlyoutPage](components/controls/flyoutpage.md)
   * [CollectionView](components/controls/collectionview/README.md)
     * [Interactions](components/controls/collectionview/interactions.md)
+    * [Layout](components/controls/collectionview/layout.md)
 
 ## Deep dives
 

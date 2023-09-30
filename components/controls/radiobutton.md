@@ -6,8 +6,11 @@ description: This page describes how to create radio buttons in MauiReactor
 
 > The .NET Multi-platform App UI (.NET MAUI) [RadioButton](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.radiobutton) is a type of button that allows users to select one option from a set. Each option is represented by one radio button, and you can only select one radio button in a group.&#x20;
 
-Doc: [https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/radiobutton](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/radiobutton)\
-Sample: [https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
+Official documentation:\
+[https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/radiobutton](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/radiobutton)\
+\
+MauiReactor sample app:\
+[https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
 
 ## Group of radio buttons with string content
 

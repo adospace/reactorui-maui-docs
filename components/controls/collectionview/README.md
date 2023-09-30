@@ -6,9 +6,20 @@ description: This page describes how to create a CollectionView in MauiReactor
 
 > The .NET Multi-platform App UI (.NET MAUI) [CollectionView](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.collectionview) is a view for presenting lists of data using different layout specifications. It aims to provide a more flexible, and performant alternative to [ListView](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.listview).
 
+Official documentation:\
+[https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/)\
+\
+MauiReactor sample app:\
+
+
 ## Display data
 
 Use the method `ItemsSource()` to link a collection of items and to define how each item is displayed.
+
+{% hint style="info" %}
+Bind the CollectionView to an IEnumerable (i.e. List or Array) you do not need to modify the collection (read-only collections). \
+If you want to update the list, adding or removing items, use an ObservableCollection instead.
+{% endhint %}
 
 For example:&#x20;
 
