@@ -22,14 +22,14 @@ This is the official list of controls:\
 > The .NET Multi-platform App UI (.NET MAUI) [FlyoutPage](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.flyoutpage) is a page that manages two related pages of information – a flyout page that presents items, and a detail page that presents details about items on the flyout page.
 
 Official documentation:\
-&#x20;[https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage)\
+[https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pages/flyoutpage)\
 
 
 MauiReactor documentation:\
 [https://github.com/adospace/mauireactor-samples/tree/main/Controls/FlyoutPageTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
 
 MauiReactor sample app:\
-[https://github.com/adospace/mauireactor-samples/tree/main/Controls/FlyoutPageTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)
+
 
 ## Views
 
@@ -49,3 +49,18 @@ MauiReactor documentation:\
 
 MauiReactor sample app:\
 [https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp](https://github.com/adospace/mauireactor-samples/tree/main/Controls/RadioButtonTestApp)\
+
+
+### Display collections
+
+#### CollectionView
+
+> The .NET Multi-platform App UI (.NET MAUI) [CollectionView](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.collectionview) is a view for presenting lists of data using different layout specifications. It aims to provide a more flexible, and performant alternative to [ListView](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.listview).
+
+Official documentation:\
+[https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/)
+
+MauiReactor documentation\
+
+
+MauiReactor sample app:\

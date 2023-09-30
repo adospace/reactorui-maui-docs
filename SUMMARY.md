@@ -31,6 +31,8 @@
 * [Controls](components/controls/README.md)
   * [RadioButton](components/controls/radiobutton.md)
   * [FlyoutPage](components/controls/flyoutpage.md)
+  * [CollectionView](components/controls/collectionview/README.md)
+    * [Interactions](components/controls/collectionview/interactions.md)
 
 ## Deep dives
 
