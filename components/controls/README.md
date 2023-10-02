@@ -6,6 +6,10 @@ description: >-
 
 # Controls
 
+{% hint style="warning" %}
+This section is under construction: I'll update it in the coming weeks including all the controls from the official .NET Maui documentation
+{% endhint %}
+
 This section of articles will pair one-to-one with .NET official MAUI documentation articles in order to describe how each standard .NET MAUI control can be created in MauiReactor.
 
 This is the official list of controls:\
