@@ -38,6 +38,7 @@
     * [Empty view](components/controls/collectionview/empty-view.md)
     * [Scrolling](components/controls/collectionview/scrolling.md)
     * [Grouping](components/controls/collectionview/grouping.md)
+  * [IndicatorView](components/controls/indicatorview.md)
 
 ## Deep dives
 

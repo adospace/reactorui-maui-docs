@@ -43,7 +43,7 @@ new VStack
 }
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Radio buttons with custom content (iOS)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Radio buttons with custom content (iOS)</p></figcaption></figure>
 
 {% hint style="warning" %}
 On Android, you must define a ControlTemplate to show custom content for the radio button.
