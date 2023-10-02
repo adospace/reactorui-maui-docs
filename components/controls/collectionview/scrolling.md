@@ -8,6 +8,8 @@ description: >-
 
 > The .NET Multi-platform App UI (.NET MAUI) [CollectionView](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.collectionview) defines two `ScrollTo` methods, that scroll items into view. One of the overloads scrolls the item at the specified index into view, while the other scrolls the specified item into view. Both overloads have additional arguments that can be specified to indicate the group the item belongs to, the exact position of the item after the scroll has completed, and whether to animate the scroll.
 
+In MauiReactor, you need a reference to the native `CollectionView` and call the `ScrollTo` method on it.
+
 The following sample code shows how to scroll to a specific position index:
 
 ```csharp

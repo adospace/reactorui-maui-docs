@@ -7,7 +7,7 @@ description: This page describe how you handle selction of items in a Collection
 MauiReactor provides 2 ways to be notified when the user selects an item:
 
 1. OnSelected\<CollectionView, T> is called when a new item is selected, T is the type of the model bound to the ItemsSource property of the CollectionView
-2. &#x20;OnSelectionChanged() reports old and new selections, particularly useful when you have SelectionMode set to Multiple
+2. OnSelectionChanged() reports old and new selections, particularly useful when you have SelectionMode set to Multiple
 
 {% hint style="info" %}
 By default selection is disabled, set SelectionMode to either Single or Multiple to enable it
@@ -91,7 +91,7 @@ class MainPageSelection : Component<MainPageSelectionState>
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>The CollectionView control with 2 items selected</p></figcaption></figure>
 
 You can change the selected item using the method SelectedItem() shown below:
 
@@ -197,7 +197,7 @@ class MainPageSelection2 : Component<MainPageSelection2State>
 
 <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Move the selected item up and down</p></figcaption></figure>
 
-Selection background colors can be modified using an XAML resource as shown [here](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/selection#change-selected-item-color). You can also modify the render of each item accordnly to the state of the component.
+Selection background colors can be modified using an XAML resource as shown [here](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/selection#change-selected-item-color). In MauiReactor, you can also modify the render of each item accordnly to the state of the component.
 
 For example:
 
