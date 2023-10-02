@@ -91,7 +91,7 @@ class MainPageSelection : Component<MainPageSelectionState>
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can change the selected item using the method SelectedItem() shown below:
 
@@ -195,7 +195,7 @@ class MainPageSelection2 : Component<MainPageSelection2State>
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Move the selected item up and down</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Move the selected item up and down</p></figcaption></figure>
 
 Selection background colors can be modified using an XAML resource as shown [here](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/selection#change-selected-item-color). You can also modify the render of each item accordnly to the state of the component.
 

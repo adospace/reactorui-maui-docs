@@ -36,6 +36,8 @@
     * [Layout](components/controls/collectionview/layout.md)
     * [Selection](components/controls/collectionview/selection.md)
     * [Empty view](components/controls/collectionview/empty-view.md)
+    * [Scrolling](components/controls/collectionview/scrolling.md)
+    * [Grouping](components/controls/collectionview/grouping.md)
 
 ## Deep dives
 

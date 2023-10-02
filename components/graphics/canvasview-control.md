@@ -42,7 +42,7 @@ new CanvasView
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Just a box inside a CanvasView</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Just a box inside a CanvasView</p></figcaption></figure>
 
 As you can notice, we have also added a margin to distantiate it from the container (the ContentPage).
 

@@ -25,7 +25,7 @@ new VStack(spacing: 5)
 },
 ```
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Simple radio button group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Simple radio button group</p></figcaption></figure>
 
 ## Group of radio buttons with custom content
 
@@ -43,7 +43,7 @@ new VStack
 }
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Radio buttons with custom content (iOS)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Radio buttons with custom content (iOS)</p></figcaption></figure>
 
 {% hint style="warning" %}
 On Android, you must define a ControlTemplate to show custom content for the radio button.
@@ -129,7 +129,7 @@ This is a sample control template for Android:
 
 Using the above style:
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Radio buttons with custom style</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Radio buttons with custom style</p></figcaption></figure>
 
 ## Bonus tip: Radio buttons for an Enum
 
