@@ -46,3 +46,7 @@ This is the official list of controls:\
 {% content-ref url="indicatorview.md" %}
 [indicatorview.md](indicatorview.md)
 {% endcontent-ref %}
+
+{% content-ref url="picker.md" %}
+[picker.md](picker.md)
+{% endcontent-ref %}

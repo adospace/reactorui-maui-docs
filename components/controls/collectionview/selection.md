@@ -91,7 +91,7 @@ class MainPageSelection : Component<MainPageSelectionState>
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>The CollectionView control with 2 items selected</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>The CollectionView control with 2 items selected</p></figcaption></figure>
 
 You can change the selected item using the method SelectedItem() shown below:
 

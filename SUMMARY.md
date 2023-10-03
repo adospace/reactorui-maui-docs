@@ -39,6 +39,7 @@
     * [Scrolling](components/controls/collectionview/scrolling.md)
     * [Grouping](components/controls/collectionview/grouping.md)
   * [IndicatorView](components/controls/indicatorview.md)
+  * [Picker](components/controls/picker.md)
 
 ## Deep dives
 

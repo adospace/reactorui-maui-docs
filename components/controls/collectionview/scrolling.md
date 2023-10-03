@@ -137,6 +137,6 @@ class MainPageScrolling : Component<MainPageScrollingState>
 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Scrolling collection view to a specific position index</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Scrolling collection view to a specific position index</p></figcaption></figure>
 
 The above sample could be easily modified to scroll to a specific item as well.
