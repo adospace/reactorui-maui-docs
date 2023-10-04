@@ -15,6 +15,12 @@ This section of articles will pair one-to-one with .NET official MAUI documentat
 This is the official list of controls:\
 [https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/)
 
+## Navigation
+
+{% content-ref url="shell.md" %}
+[shell.md](shell.md)
+{% endcontent-ref %}
+
 ## Layouts
 
 

@@ -121,8 +121,6 @@ Following it's another sample of Shell with more items arranged inside a FlyoutI
 
 In the following code, FlyoutItems appearance is customized:
 
-
-
 ```csharp
 public override VisualNode Render()
     => new Shell
@@ -197,7 +195,7 @@ VisualNode RenderFlyoutContent()
 
 ## Shell menu items
 
-You can also create simple menu item inside the shell with custom command:
+You can also create a simple menu item inside the shell with a custom command:
 
 ```csharp
 public override VisualNode Render()
