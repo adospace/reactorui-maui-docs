@@ -40,6 +40,7 @@
     * [Grouping](components/controls/collectionview/grouping.md)
   * [IndicatorView](components/controls/indicatorview.md)
   * [Picker](components/controls/picker.md)
+  * [Shell](components/controls/shell.md)
 
 ## Deep dives
 
