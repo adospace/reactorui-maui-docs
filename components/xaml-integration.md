@@ -22,9 +22,9 @@ Consider this feature if you are facing the following scenarios:
 Do not mix MVU and MVVM code/approaches but use the dependency inject to share services.
 {% endhint %}
 
-Let's start adding MauiReactor nuget package to the project:
+Let's start by adding MauiReactor Nuget package to the project:
 
-`dotnet add package Reactor.Maui --version 1.0.138`
+`dotnet add package Reactor.Maui`
 
 To host a MauiReactor component on your page please use the `ComponenHost` class like it's shown in the following snippet code:
 
@@ -109,7 +109,7 @@ class ChildPage : Component
 }
 ```
 
-It works the same with the Shell: just register the route and navigate to it:
+The same works with the Shell as well. You need to register the route using the static method `Routing.RegisterRoute` and navigate to it with the usual `Shell.Current.GoToAsync` call:
 
 ```csharp
 Routing.RegisterRoute<Page2>("page-2");
