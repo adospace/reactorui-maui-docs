@@ -299,3 +299,79 @@ private VisualNode RenderFooter()
 This is the resulting effect:
 
 <figure><img src="../../.gitbook/assets/Shell5.gif" alt=""><figcaption><p>Custom Flyout Header and Footer + custom background</p></figcaption></figure>
+
+## Tabs
+
+You can create Tabs on top and bottom; just nest shell contents within Tab and TabBar objects as shown in the below example:
+
+```csharp
+public override VisualNode Render()
+    => new Shell
+    {
+        new TabBar
+        {
+            new ShellContent("Home")
+                .Icon("home.png")
+                .RenderContent(()=> new HomePage()),
+
+            new Tab("Engage")
+            {
+                new ShellContent("Notifications")
+                    .RenderContent(()=> new NotificationsPage()),
+
+                new ShellContent("Comments")
+                    .RenderContent(()=> new CommentsPage()),
+            }
+            .Icon("comments.png")
+        }
+    };
+```
+
+<figure><img src="../../.gitbook/assets/Shell6.gif" alt=""><figcaption><p>Shell top and bottom tab bar</p></figcaption></figure>
+
+You can also change tab bar properties like the background color or select a specific tab. The following code shows how to:
+
+```csharp
+private MauiControls.ShellContent _notificationsPage;
+
+public override VisualNode Render()
+    => new Shell
+    {
+        new TabBar
+        {
+            new ShellContent("Home")
+                .Icon("home.png")
+                .RenderContent(()=> new HomePage()),
+
+            new Tab("Engage")
+            {
+                new ShellContent(pageRef => _notificationsPage = pageRef)
+                    .Title("Notifications")
+                    .RenderContent(()=> new NotificationsPage()),
+
+                new ShellContent("Comments")
+                { 
+                    new ContentPage
+                    {
+                        new Button("Go to notifications")
+                            .VCenter()
+                            .HCenter()
+                            .OnClicked(()=> MauiControls.Shell.Current.CurrentItem = _notificationsPage)
+                    }
+                }
+            }
+            .Icon("comments.png")
+        }
+        .Set(MauiControls.Shell.TabBarBackgroundColorProperty, Colors.Aquamarine)
+    };
+```
+
+<figure><img src="../../.gitbook/assets/Shell7.gif" alt=""><figcaption><p>Custom tab bar color and selection of tab</p></figcaption></figure>
+
+{% hint style="info" %}
+To set an attached dependency property for a control in MauiReactor you have to use the Set() method.
+
+For example, to set the `TabBarIsVisible` for a `ShellContent` use a code like this:
+
+`Set(MauiControls.Shell.TabBarIsVisibleProperty, true)`
+{% endhint %}
