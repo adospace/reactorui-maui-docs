@@ -15,7 +15,8 @@ Official documentation:\
 [https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/shell/](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/shell/)\
 \
 MauiReactor sample app:\
-[https://github.com/adospace/mauireactor-samples/tree/main/Controls/ShellTestPage](https://github.com/adospace/mauireactor-samples/tree/main/Controls/ShellTestPage)
+[https://github.com/adospace/mauireactor-samples/tree/main/Controls/ShellTestPage](https://github.com/adospace/mauireactor-samples/tree/main/Controls/ShellTestPage)\
+[https://github.com/adospace/mauireactor-samples/tree/main/Controls/ShellNavTestPage](https://github.com/adospace/mauireactor-samples/tree/main/Controls/ShellNavTestPage)
 
 ## Shell with ShellContents
 
@@ -374,4 +375,159 @@ To set an attached dependency property for a control in MauiReactor you have to 
 For example, to set the `TabBarIsVisible` for a `ShellContent` use a code like this:
 
 `Set(MauiControls.Shell.TabBarIsVisibleProperty, true)`
+{% endhint %}
+
+## Navigation
+
+> .NET Multi-platform App UI (.NET MAUI) Shell includes a URI-based navigation experience that uses routes to navigate to any page in the app, without having to follow a set navigation hierarchy. In addition, it also provides the ability to navigate backwards without having to visit all of the pages on the navigation stack.
+
+MauiReactor allows the registration of components with routes just like you do with Page in normal Maui applications.\
+To register a route you have to use the `Routing.RegisterRoute<Component>("page name")` method.
+
+The following example shows how to register a few routes and how to navigate to them:
+
+```csharp
+class MainPage : Component
+{
+    protected override void OnMounted()
+    {
+        Routing.RegisterRoute<Page2>(nameof(Page2));
+        Routing.RegisterRoute<Page3>(nameof(Page3));
+
+        base.OnMounted();
+    }
+
+
+    public override VisualNode Render()
+        => new Shell
+        {
+            new Page1()
+        };
+}
+
+class Page1 : Component
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("Page1")
+        {
+            new VStack
+            {
+                new Button("Goto Page2")
+                     .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync(nameof(Page2)))
+            }
+            .HCenter()
+            .VCenter()
+        };
+    }
+}
+
+class Page2 : Component
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("Page2")
+        {
+            new VStack
+            {
+                new Button("Goto Page3")
+                    .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync(nameof(Page3)))
+            }
+            .HCenter()
+            .VCenter()
+        };
+    }
+}
+
+class Page3 : Component
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("Page3")
+        {
+            new VStack
+            {
+                new Button("Open ModalPage")
+                    .OnClicked(async () => await Navigation.PushModalAsync<ModalPage>())
+            }
+            .HCenter()
+            .VCenter()
+        };
+    }
+}
+
+class ModalPage : Component
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("Modal Page")
+        {
+            new VStack
+            {
+                new Button("Back")
+                    .OnClicked(async () => await Navigation.PopModalAsync())
+            }
+            .HCenter()
+            .VCenter()
+        };
+    }
+}
+```
+
+<figure><img src="../../.gitbook/assets/Shell8.gif" alt=""><figcaption><p>Shell navigation in action</p></figcaption></figure>
+
+Passing arguments to pages (components) would mean creating a Props class for the target page and using an overload of the GotoToAsync as shown below:
+
+```csharp
+class Page2 : Component
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("Page2")
+        {
+            new VStack
+            {
+                new Button("Goto Page3")
+                    .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync<PageWithArgumentsProps>(nameof(PageWithArguments), props => props.ParameterPassed = "Hello from Page2!"))
+            }
+            .HCenter()
+            .VCenter()
+        };
+    }
+}
+
+
+class PageWithArgumentsState
+{ }
+
+class PageWithArgumentsProps
+{
+    public string ParameterPassed { get; set; }
+}
+
+class PageWithArguments : Component<PageWithArgumentsState, PageWithArgumentsProps>
+{
+    public override VisualNode Render()
+    {
+        return new ContentPage("PageWithArguments")
+        {
+            new VStack(spacing: 10)
+            {
+                new Label($"Parameter: {Props.ParameterPassed}")
+                    .HCenter(),
+
+                new Button("Open ModalPage")
+                    .OnClicked(async () => await Navigation.PushModalAsync<ModalPage>())
+            }
+            //.HCenter()
+            .VCenter()
+        };
+    }
+}
+```
+
+<figure><img src="../../.gitbook/assets/Shell9.gif" alt=""><figcaption><p>Passing arguments to pages</p></figcaption></figure>
+
+{% hint style="info" %}
+If you want to pass arguments to a modal page use the overload of the `Navigation.PushModalAsync<Page, Props>()` method.
 {% endhint %}
