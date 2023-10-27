@@ -140,3 +140,89 @@ class MainPageScrolling : Component<MainPageScrollingState>
 <figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Scrolling collection view to a specific position index</p></figcaption></figure>
 
 The above sample could be easily modified to scroll to a specific item as well.
+
+### Control scroll position when new items are added <a href="#control-scroll-position-when-new-items-are-added" id="control-scroll-position-when-new-items-are-added"></a>
+
+You can control the behavior of the scrolling when new items are added to the CollectionView using the property ItemsUpdatingScrollMode.\
+For example, setting it to `MauiControls.ItemsUpdatingScrollMode.KeepLastItemInView`, the CollectionView will scroll to the latest item added.
+
+This is an example:
+
+```csharp
+class MainPageScrollingModeState
+{
+    public ObservableCollection<IndexedPersonWithAddress> Persons { get; set; }
+
+    public MauiControls.ItemsUpdatingScrollMode CurrentScrollMode { get; set; }
+}
+
+class MainPageScrollingMode : Component<MainPageScrollingModeState>
+{
+    private MauiControls.CollectionView _collectionViewRef;
+
+    private static List<IndexedPersonWithAddress> GenerateSamplePersons(int count)
+    {
+        var random = new Random();
+        var firstNames = new[] { "John", "Jim", "Joe", "Jack", "Jane", "Jill", "Jerry", "Jude", "Julia", "Jenny" };
+        var lastNames = new[] { "Brown", "Green", "Black", "White", "Blue", "Red", "Gray", "Smith", "Doe", "Jones" };
+        var cities = new[] { "New York", "London", "Sidney", "Tokyo", "Paris", "Berlin", "Mumbai", "Beijing", "Cairo", "Rio" };
+
+        var persons = new List<IndexedPersonWithAddress>();
+
+        for (int i = 0; i < count; i++)
+        {
+            var firstName = firstNames[random.Next(0, firstNames.Length)];
+            var lastName = lastNames[random.Next(0, lastNames.Length)];
+            var age = random.Next(20, 60);
+            var city = cities[random.Next(0, cities.Length)];
+            var address = $"{city} No. {random.Next(1, 11)} Lake Park";
+
+            persons.Add(new IndexedPersonWithAddress(i, firstName, lastName, age, address));
+        }
+
+        return persons;
+    }
+
+    protected override void OnMounted()
+    {
+        State.Persons = new ObservableCollection<IndexedPersonWithAddress>(GenerateSamplePersons(100));
+        base.OnMounted();
+    }
+
+    public override VisualNode Render()
+    {
+        return new ContentPage
+        {
+            new Grid("Auto, Auto, *", "*")
+            {
+                new Picker()
+                    .ItemsSource(Enum.GetValues<MauiControls.ItemsUpdatingScrollMode>().Select(_=>_.ToString()).ToArray())
+                    .OnSelectedIndexChanged(index => SetState(s => s.CurrentScrollMode = (MauiControls.ItemsUpdatingScrollMode)index)),                    
+
+                new Button("Add item", ()=> State.Persons.Add(GenerateSamplePersons(1).First() with { Index = State.Persons.Count }))
+                    .GridRow(1),
+
+                new CollectionView()
+                    .ItemsSource(State.Persons, RenderPerson)
+                    .ItemsUpdatingScrollMode(State.CurrentScrollMode)
+                    .GridRow(2)
+            }
+        };
+    }
+
+    private VisualNode RenderPerson(IndexedPersonWithAddress person)
+    {
+        return new VStack(spacing: 5)
+        {
+            new Label($"{person.Index}. {person.FirstName} {person.LastName} ({person.Age})"),
+            new Label(person.Address)
+                .FontSize(12)
+        }
+        .HeightRequest(56)
+        .VCenter();
+    }
+}
+
+```
+
+<figure><img src="../../../.gitbook/assets/CollectionView.gif" alt=""><figcaption><p>Sample app showing the ItemsUpdatingScrollMode behavior</p></figcaption></figure>
