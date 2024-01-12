@@ -12,7 +12,10 @@ MauiReactor 2 will be released next week, stay tuned!
 
 MauiReactor 2 is the new version of MauiReactor targeting .NET 8. It contains some good improvements, many of which are under the hood. \
 \
-If you're coming from version 1 there is good news: your code is mostly working as it is. There are just a couple of breaking changes you need to be aware of.\
+If you're coming from version 1 there is good news: your code is mostly working as it is. There are just a couple of breaking changes you need to be aware of.
+
+Source code: [https://github.com/adospace/reactorui-maui](https://github.com/adospace/reactorui-maui)\
+License: MIT (i.e. you can use it for your closed-source commercial projects)\
 \
 Let's start with what is new.
 
