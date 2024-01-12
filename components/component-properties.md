@@ -4,50 +4,37 @@ description: Describes how to specify properties for a component
 
 # Component Properties
 
-When creating a component you almost always need to pass props (or parameters/property values) in order to customize its appearance or behavior. In MauiReactor you can use plain properties.
+When creating a component you almost always need to pass props (or parameters/property values) to customize its appearance or behavior. In MauiReactor you can use plain properties.
 
 Take for example this component that implements an activity indicator with a label:
 
 ```csharp
-public class BusyComponent : Component
+partial class BusyComponent : Component
 {
-    private string _message;
-    private bool _isBusy;
-
-    public BusyComponent Message(string message)
-    {
-        _message = message;
-        return this;
-    }
-
-    public BusyComponent IsBusy(bool isBusy)
-    {
-        _isBusy = isBusy;
-        return this;
-    }
-
+    [Prop]
+    string _message;
+    [Prop]
+    bool _isBusy;
+    
     public override VisualNode Render()
-    {
-        return new StackLayout()
-        {
-            new ActivityIndicator()
+     => StackLayout(
+            ActivityIndicator()
                 .IsRunning(_isBusy),
-            new Label()
+            Label()
                 .Text(_message)
-        };
-    }
+        );
 }
 ```
 
 and this is how we can use it on a page:
 
 ```csharp
-public class BusyPageState : IState
+class BusyPageState : IState
 {
     public bool IsBusy { get; set; }
 }
 
-public class BusyPageComponent : Component<BusyPageState>
+class BusyPageComponent : Component<BusyPageState>
 {
     protected override void OnMounted()
     {
@@ -66,22 +53,18 @@ public class BusyPageComponent : Component<BusyPageState>
     }
 
     public override VisualNode Render()
-    {
-        return new ContentPage()
-        {
+      => ContentPage(
             State.IsBusy ?
             new BusyComponent()
                 .Message("Loading")
                 .IsBusy(true)
             :
             RenderPage()
-        };
-    }
+        );
 
     private VisualNode RenderPage()
-        => new Label("Done!")
-                .VCenter()
-                .HCenter();
+        => Label("Done!")
+            .Center();
 }
 ```
 

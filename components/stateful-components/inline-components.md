@@ -24,35 +24,24 @@ class MudEntryState
     public bool IsFilled { get; set; }
 }
 
-class MudEntry : Component<MudEntryState>
+partial class MudEntry : Component<MudEntryState>
 {
-    private MauiControls.Entry _entryRef;
-    private Action<string> _textChangedAction;
-    private string _label;
-
-    public MudEntry OnTextChanged(Action<string> textChangedAction)
-    {
-        _textChangedAction = textChangedAction;
-        return this;
-    }
-
-    public MudEntry Label(string label)
-    {
-        _label = label;
-        return this;
-    }
+    MauiControls.Entry _entryRef;
+    
+    [Prop]
+    Action<string>? _textChanged;
+    [Prop]
+    string _label;
 
     public override VisualNode Render()
-    {
-        return new Grid("Auto", "*")
-        {
-            new Entry(entryRef => _entryRef = entryRef)
+     => Grid("Auto", "*",
+            Entry(entryRef => _entryRef = entryRef)
                 .OnAfterTextChanged(OnTextChanged)
                 .VCenter()
                 .OnFocused(()=>SetState(s => s.Focused = true))
                 .OnUnfocused(()=>SetState(s => s.Focused = false)),
 
-            new Label(_label)                
+            Label(_label)                
                 .OnTapped(()=>_entryRef?.Focus())
                 .Margin(5,0)
                 .HStart()
@@ -62,26 +51,24 @@ class MudEntry : Component<MudEntryState>
                 .AnchorX(0)
                 .TextColor(!State.Focused || !State.IsFilled ? Colors.Gray : Colors.Red)
                 .WithAnimation(duration: 200),
-        }
-        .VCenter();
-    }
+        )
+        .VCenter();    
 
     private void OnTextChanged(string text)
     {
         SetState(s => s.IsFilled = !string.IsNullOrWhiteSpace(text));
-        _textChangedAction?.Invoke(text);
+        _textChanged?.Invoke(text);
     }
 }
 ```
 
-MauiReactor allows you to collapse the component + state in single declaration that you can return from a function:
+MauiReactor allows you to collapse the component + state in the single declaration that you can return from a function:
 
 <pre class="language-csharp" data-line-numbers><code class="lang-csharp">static VisualNode RenderMudEntry(string label, Action&#x3C;string> textChangedAction)
-<strong>    => Component.Render(context =>
+<strong>    => Render&#x3C;(bool IsFocused, bool IsFilled)>(state =>
 </strong>    {
         MauiControls.Entry _entryRef = null;
-<strong>        var state = context.UseState&#x3C;(bool IsFocused, bool IsFilled)>();
-</strong>
+
         return new Grid("Auto", "*")
         {
             new Entry(entryRef => _entryRef = entryRef)
@@ -112,7 +99,7 @@ MauiReactor allows you to collapse the component + state in single declaration t
 
 In Line 2 we use the static method Component.Render() which takes a Func\<VisualNode>. It creates a hidden stateful component on the fly and uses the passed function to render its content.
 
-In Line 5 we declare our state using the method UseState\<S>() where S is the type of state we need to render the component. \
+In Line 5 we declare our state using the method UseState\<S>() where S is the type of state we need to render the component.\
 You can pass any type to it but, of course, the beauty of the solution is to take everything contained in the function without external references. In the above sample, we use a c# Tuple that has 2 properties IsFocused and IsFilled.
 
 The rest of the function is more or less the same as the content of the Render method.

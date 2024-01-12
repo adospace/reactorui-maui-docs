@@ -22,19 +22,19 @@ To build the project just move inside the project directory and run the usual do
 
 ```
 cd .\my-new-project\
-dotnet build -f net7.0-android
+dotnet build -f net8.0-android
 ```
 
 To run the app under the android platform execute the following command:
 
 ```
-dotnet build -t:Run -f net7.0-android
+dotnet build -t:Run -f net8.0-android
 ```
 
 You can run the ios app under MAC with the command:
 
 ```
-dotnet build -t:Run /p:_DeviceName=:v2:udid=<device_id> -f net7.0-ios
+dotnet build -t:Run /p:_DeviceName=:v2:udid=<device_id> -f net8.0-ios
 ```
 
 where the device\_id is the Guid of the device that should be targeted. To find the list of available devices with the corresponding ids, run the command:
@@ -69,20 +69,20 @@ MauiReactor hot reload can work in two different modes: **Simple** and **Full**
 To start the hot-reload console in **Simple Mode**:
 
 ```
-dotnet-maui-reactor -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0]
+dotnet-maui-reactor -f [net8.0-android|net8.0-ios|net8.0-maccatalyst|windows10.0.19041.0]
 ```
 
 This is the command to start it in **Full Mode**:
 
 ```
-dotnet-maui-reactor -f [net7.0-android|net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0] --mode Full
+dotnet-maui-reactor -f [net8.0-android|net8.0-ios|net8.0-maccatalyst|windows10.0.19041.0] --mode Full
 ```
 
 ## .NET built-in hot-reload
 
 Since version 1.0.116 MauiReactor also supports .NET built-in hot-reload. This feature is enabled by default when you call the `EnableMauiReactorHotReload()` method on your application builder.
 
-To enable the hot-reload for MAUI projects and for an updated list of supported edits please look at the official documentation [here](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022).
+To enable the hot-reload for MAUI projects and an updated list of supported edits please look at the official documentation [here](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022).
 
 ## Create a new project in Visual Studio 2022
 
@@ -93,6 +93,10 @@ After you have installed the dotnet project template you should see it in the Vi
 ## Create a new project in Visual Studio 2022 for Mac
 
 After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
+
+{% hint style="warning" %}
+Microsoft has deprecated Visual Studio 2022 for Mac. To create Maui application on Mac please get a look at the .NET Maui extensions for VsCode ([https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/](https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/))
+{% endhint %}
 
 <figure><img src=".gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Select Other -> Custom -> MauiReactor based app</p></figcaption></figure>
 
@@ -131,7 +135,7 @@ It's totally fine to start from a standard MAUI project template: below we'll se
 Include the latest version of the MauiReactor package (select the latest version):
 
 ```
-<PackageReference Include="Reactor.Maui" Version="1.0.105" />
+<PackageReference Include="Reactor.Maui" Version="2.0.*" />
 ```
 
 Even if not strictly required, I suggest removing the ImplicitUsings directive in the csproj file:
@@ -165,14 +169,10 @@ Create a MainPage component: add a HomePage.cs file in the project root folder w
 class MainPage : Component
 {
     public override VisualNode Render()
-    {
-        return new ContentPage
-        {
-            new Label("Hi!")
-                .HCenter()
-                .VCenter()
-        };
-    }
+    => ContentPage(
+           Label("Hi!")
+            .Center()
+        );
 }
 ```
 
@@ -201,7 +201,7 @@ public static MauiApp CreateMauiApp()
 
 ## Best practices
 
-When the app is hot-reloaded, a new assembly is compiled on the fly and injected into the running app. This means that the new component lives in a different assembly from the original one. It's recommended to follow these best practices in order to avoid type mismatch issues:
+When the app is hot-reloaded, a new assembly is compiled on the fly and injected into the running app. This means that the new component lives in a different assembly from the original one. It's recommended to follow these best practices to avoid type mismatch issues:
 
 * Component state class should contain only public properties whose types are value-type or string.
 * If you need a component state with properties other than value-type/string (i.e. classes), host them in a separate assembly (project) so that it's not hot reloaded.

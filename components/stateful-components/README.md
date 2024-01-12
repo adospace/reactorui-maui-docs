@@ -45,15 +45,11 @@ public class BusyPageComponent : Component<BusyPageState>
     }
 
     public override VisualNode Render()
-    {
-        return new ContentPage()
-        {
-            new ActivityIndicator()
-                .VCenter()
-                .HCenter()
+        => ContentPage(
+            ActivityIndicator()
+                .Center()
                 .IsRunning(State.IsBusy)
-        };
-    }
+        );
 }
 
 ```
@@ -91,22 +87,16 @@ class CounterPageState
 class CounterPage : Component<CounterPageState>
 {
     public override VisualNode Render()
-    {
-        return new ContentPage("Counter Sample")
-        {
-            new VStack(spacing: 10)
-            {
-                new Label($"Counter: {State.Counter}")
-                    .VCenter()
-                    .HCenter(),
+    => ContentPage("Counter Sample",
+            VStack(spacing: 10,
+                Label($"Counter: {State.Counter}")
+                    .Center(),
 
-                new Button("Click To Increment", () =>
+                Button("Click To Increment", () =>
                     SetState(s => s.Counter++))
-            }
-            .VCenter()
-            .HCenter()
-        };
-    }
+            )
+            .Center()
+        );
 }
 ```
 
@@ -123,22 +113,17 @@ class CounterPageState
 class CounterPage : Component<CounterPageState>
 {
     public override VisualNode Render()
-    {
-        return new ContentPage("Counter Sample")
-        {
-            new VStack(spacing: 10)
-            {
+        => ContentPage("Counter Sample",
+            VStack(spacing: 10,
                 State.Counter == 0 ? new Label($"Counter: {State.Counter}")
                     .VCenter()
                     .HCenter() : null,
 
-                new Button("Click To Increment", () =>
+                Button("Click To Increment", () =>
                     SetState(s => s.Counter++))
-            }
-            .VCenter()
-            .HCenter()
-        };
-    }
+            )
+            .Center()
+        );
 }
 ```
 
@@ -168,20 +153,17 @@ class CounterPage : Component<CounterPageState>
     public override VisualNode Render()
     {
         Debug.WriteLine("Render");
-        return new ContentPage("Counter Sample")
-        {
-            new VStack(spacing: 10)
-            {
-                new Label($"Counter: {State.Counter}")
+        return ContentPage("Counter Sample",
+            VStack(spacing: 10,
+                Label($"Counter: {State.Counter}")
                     .VCenter()
                     .HCenter(),
 
-                new Button("Click To Increment", () =>
+                Button("Click To Increment", () =>
                     SetState(s => s.Counter++))
-            }
-            .VCenter()
-            .HCenter()
-        };
+            )
+            .Center()
+        );
     }
 }
 ```
@@ -203,27 +185,23 @@ class CounterPage : Component&#x3C;CounterPageState>
     public override VisualNode Render()
     {
         Debug.WriteLine("Render");
-        return new ContentPage("Counter Sample")
-        {
-            new VStack(spacing: 10)
-            {
-<strong>                new Label(()=> $"Counter: {State.Counter}")
-</strong>                    .VCenter()
-                    .HCenter(),
+        return ContentPage("Counter Sample",
+            VStack(spacing: 10,
+<strong>                Label(()=> $"Counter: {State.Counter}")
+</strong>                    .Center(),
 
-                new Button("Click To Increment", () =>
+                Button("Click To Increment", () =>
 <strong>                    SetState(s => s.Counter++, invalidateComponent: false))
-</strong>            }
-            .VCenter()
-            .HCenter()
-        };
+</strong>            )
+            .Center()
+        );
     }
 }
 </code></pre>
 
 Notice the changes to lines 15 and 20:
 
-15: we use an overload of the `Label()` class that accepts a `Func<string>`\
+15: we use an overload of the `Label()` the class that accepts a `Func<string>`\
 20: secondly we call `SetState(..., invalidateComponent: false)`
 
 Now if you click the button, no Render message should be written to the console output: this proves that we're updating the native Label `without` recreating the component.

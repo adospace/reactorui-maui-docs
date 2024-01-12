@@ -8,23 +8,15 @@ description: >-
 
 MauiReactor lets you build MAUI applications from components in an MVU environment. Often you need to integrate external controls that are provided by Microsoft itself, by community OSS projects, or by commercial vendors.
 
-In order to use these controls in MauiReactor you have to create wrappers that can handle the initializations (i.e. Mount), update (Render), and finalization (Unmount) of the native widget.
+To use these controls in MauiReactor you have to create wrappers that can handle the initializations (i.e. Mount), update (Render), and finalization (Unmount) of the native widget.
 
-For this, MauiReactor provides a tool (Source Generator) that is released inside a NuGet package: so first of all you need to add to your project:
-
-```
-<PackageReference Include="Reactor.Maui.ScaffoldGenerator" Version="1.0.105" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
-```
-
-{% hint style="warning" %}
-Be aware to include both attributes: `OutputItemType` and `ReferenceOutputAssembly`
-{% endhint %}
+For this, MauiReactor provides a source generator that is triggered by the attribute `ScaffoldAttribute`
 
 {% hint style="info" %}
 _Source generators_ are a powerful way to augment user source code. ScaffoldGenerator library creates a MauiReactor wrapper for a native control. You are not strictly required to know how _source generators_ work but if interested take a look [https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/source-generators-overview](https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/source-generators-overview)
 {% endhint %}
 
-After that, you just need to create a partial class with the name you like and apply the attribute `Scaffold` with the type of native control that you'd like to embed.
+You just need to create a partial class with the name you like and apply the attribute `Scaffold`with the type of native control that you'd like to embed.
 
 For example, the following code creates a `VisualNode` for the LiveChartsCore.SkiaSharpView.Maui.CartesianChart control from the great charting library :
 
@@ -38,7 +30,7 @@ A VisualNode is a node in the Visual Tree that MauiReactor creates for each page
 {% endhint %}
 
 {% hint style="warning" %}
-MauiReactor can handle any kind of MAUI controls, but for some, the bare-bone wrapper create automatically by the `ScaffoldGenerator` is not enough to handle every aspect of the native widget (for example when a `DataTemplate` is used to render child items). For those that are required to handle such behavior please take a look at the MauiReactor code (especially the implementation of wrappers for ItemsView and Shell) or open an issue [here](https://github.com/adospace/reactorui-maui/issues)
+MauiReactor can handle any kind of MAUI controls, but for some, the bare-bone wrapper is created automatically by the `ScaffoldGenerator` is not enough to handle every aspect of the native widget (for example when a `DataTemplate` is used to render child items). For those that are required to handle such behavior please take a look at the MauiReactor code (especially the implementation of wrappers for ItemsView and Shell) or open an issue [here](https://github.com/adospace/reactorui-maui/issues)
 {% endhint %}
 
 As you have the wrapper you can use it in a component as any other control:
@@ -67,11 +59,8 @@ class ChartPage : Component<ChartPageState>
     static readonly Random _rnd = new();
 
     public override VisualNode Render()
-    {
-        return new ContentPage("Chart Sample")
-        {
-            new Grid("*, *, Auto", "*")
-            {
+        => ContentPage("Chart Sample",
+            Grid("*, *, Auto", "*",
                new PolarChart()
                     .Series(() => new ISeries[]
                     {
@@ -98,7 +87,7 @@ class ChartPage : Component<ChartPageState>
                     })
                     .GridRow(1),
 
-                new Slider()
+                Slider()
                     .GridRow(2)
                     .Minimum(2)
                     .Maximum(25)
@@ -111,9 +100,8 @@ class ChartPage : Component<ChartPageState>
                             .Select(_=>_rnd.NextDouble()*20.0)
                             .ToArray(), false);
                     })
-            }
-        }
+            )
+        )
         .BackgroundColor(Colors.Black);
-    }
 }
 ```

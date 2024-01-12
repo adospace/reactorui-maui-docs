@@ -17,7 +17,7 @@ public class CalcService
 }
 ```
 
-We, first, have to register the services during startup of the app:
+We, first, have to register the services during the startup of the app:
 
 ```csharp
 public static MauiApp CreateMauiApp()
@@ -45,7 +45,7 @@ Then we can access it inside our components:
     public double Result { get; set; }
 }
 
-public class MainPage : RxComponent&#x3C;MainPageState>
+public class MainPage : Component&#x3C;MainPageState>
 {
     public override VisualNode Render()
     {

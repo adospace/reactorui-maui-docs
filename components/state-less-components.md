@@ -41,20 +41,17 @@ The following code creates a component that renders a `ContentPage` with title "
 class MainPage : Component
 {
     public override VisualNode Render()
-    {
-        return new ContentPage()
-            .Title("Home Page")
-            ;
-    }
+     => ContentPage()
+            .Title("Home Page");
 }
 ```
 {% endcode %}
 
-Line 3\. Every component must override the Render method and return the visual tree of the component
+Line 3. Every component must override the Render method and return the visual tree of the component
 
-Line 5\. The ContentPage visual node pairs with the ContentPage native control.
+Line 5. The ContentPage visual node pairs with the ContentPage native control.
 
-Line 6\. The Title property sets the title of the page and updates the Title dependency property on the native page.
+Line 6. The Title property sets the title of the page and updates the Title dependency property on the native page.
 
 You can also pass the title to the Constructor:
 
@@ -63,14 +60,12 @@ You can also pass the title to the Constructor:
 class MainPage : Component
 {
     public override VisualNode Render()
-    {
-        return new ContentPage("Home Page");
-    }
+      => ContentPage("Home Page");
 }
 ```
 {% endcode %}
 
-Line 5\. The title of the page is set by passing it to the `ContentPage` constructor.
+Line 5. The title of the page is set by passing it to the `ContentPage` constructor.
 
 Running the app you should see an empty page titled "Home Page"
 
@@ -82,51 +77,36 @@ For example, consider this component:
 class MainPage : Component
 {
     public override VisualNode Render()
-    {
-        return new ContentPage()
-        {
-            new VStack
-            {
-                new Label("User:"),
-                new Entry(),
-                new Label("Password:"),
-                new Entry(),
-                new HStack()
-                {
-                    new Button("Login"),
-                    new Button("Register")
-                }
-            }
-            .HCenter()
-            .VCenter()
-        }
-        .Title("Login");
-    }
+        => ContentPage("Login",
+            VStack(
+                Label("User:"),
+                Entry(),
+                Label("Password:"),
+                Entry(),
+                HStack(
+                    Button("Login"),
+                    Button("Register")
+                )
+            )
+            .Center()
+        );
 }
 ```
 
 We could create a component like this:
 
-```csharp
-class EntryWithLabel : Component
-{
+<pre class="language-csharp"><code class="lang-csharp"><strong>partial class EntryWithLabel : Component
+</strong>{
+    [Prop]
     string _label;
-    public EntryWithLabel Label(string label)
-    {
-        _label = label;
-        return this;
-    }
     
     public override VisualNode Render()
-    {
-        return new VStack
-        {
-            new Label(_label),
-            new Entry()
-        };
-    }   
+      => VStack(
+            Label(_label),
+            Entry()
+        );
 }
-```
+</code></pre>
 
 and reuse it on the main page as shown in the following code:
 
@@ -134,26 +114,19 @@ and reuse it on the main page as shown in the following code:
 class MainPage : Component
 {
     public override VisualNode Render()
-    {
-        return new ContentPage()
-        {
-            new VStack
-            {
+        => ContentPage("Login",
+            VStack(
                 new EntryWithLabel()
                     .Label("User:"),
                 new EntryWithLabel()
                     .Label("Password:"),
-                new HStack()
-                {
-                    new Button("Login"),
-                    new Button("Register")
-                }
-            }
-            .HCenter()
-            .VCenter()
-        }
-        .Title("Login");
-    }
+                HStack(
+                    Button("Login"),
+                    Button("Register")
+                )
+            )
+            .Center()
+        );
 }
 ```
 

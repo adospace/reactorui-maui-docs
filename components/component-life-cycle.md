@@ -31,12 +31,9 @@ class MainPageState
 class MainPage : Component<MainPageState>
 {
     public override VisualNode Render()
-    {
-        return new ContentPage
-        {
-            new VStack(spacing: 5)
-            {
-                new Button($"Use {(!State.Toggle ? "increment" : "decrement")} button", ()=> SetState(s => s.Toggle = !s.Toggle)),
+    =>  ContentPage(
+            VStack(spacing: 5,
+                Button($"Use {(!State.Toggle ? "increment" : "decrement")} button", ()=> SetState(s => s.Toggle = !s.Toggle)),
                 State.Toggle ?
                     new IncrementalCounter()
                         .CurrentValue(State.CurrentValue)
@@ -45,29 +42,17 @@ class MainPage : Component<MainPageState>
                     new DecrementalCounter()
                         .CurrentValue(State.CurrentValue)
                         .ValueChanged(v => SetState(s => s.CurrentValue = v))
-            }
-            .VCenter()
-            .HCenter()
-        };
-    }
+            )
+            .Center()
+        );
 }
 
-class IncrementalCounter : Component
+partial class IncrementalCounter : Component
 { 
+    [Prop]
     int _currentValue;
+    [Prop]
     private Action<int> _valueChanged;
-
-    public IncrementalCounter CurrentValue(int currentValue)
-    {
-        _currentValue = currentValue;
-        return this;
-    }
-
-    public IncrementalCounter ValueChanged(Action<int> valueChanged)
-    {
-        _valueChanged = valueChanged;
-        return this;
-    }
 
     protected override void OnMounted()
     {
@@ -91,27 +76,17 @@ class IncrementalCounter : Component
     {
         Debug.WriteLine("[IncrementalCounter] Render()");
 
-        return new Button($"Increment from {_currentValue}!")
+        return Button($"Increment from {_currentValue}!")
             .OnClicked(() => _valueChanged?.Invoke(++_currentValue));
     }
 }
 
 class DecrementalCounter : Component
 {
+    [Prop]
     int _currentValue;
+    [Prop]
     private Action<int> _valueChanged;
-
-    public DecrementalCounter CurrentValue(int currentValue)
-    {
-        _currentValue = currentValue;
-        return this;
-    }
-
-    public DecrementalCounter ValueChanged(Action<int> valueChanged)
-    {
-        _valueChanged = valueChanged;
-        return this;
-    }
 
     protected override void OnMounted()
     {

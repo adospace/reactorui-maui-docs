@@ -1,6 +1,7 @@
 # Table of contents
 
-* [What is MauiReactor?](README.md)
+* [What's New in Version 2](README.md)
+* [What is MauiReactor?](<README (1).md>)
 * [Getting Started](getting-started.md)
 
 ## Components
@@ -42,7 +43,6 @@
 * [Testing](components/testing.md)
 * [XAML Integration](components/xaml-integration.md)
 
-
 ## Deep dives
 
 * [Native tree and Visual tree](deep-dives/native-tree-and-visual-tree.md)
@@ -50,6 +50,7 @@
 * [Working with the GraphicsView](deep-dives/working-with-the-graphicsview.md)
 * [Migrating from MVVM Model](deep-dives/migrating-from-mvvm-model.md)
 * [Using XAML Resources](deep-dives/using-xaml-resources.md)
+* [Behaviors](deep-dives/behaviors.md)
 
 ## resources
 
