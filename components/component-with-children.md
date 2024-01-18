@@ -15,19 +15,12 @@ Say we want, for example, to create a component that arranges its children withi
 To start, let's create a component that builds our page:
 
 ```csharp
-public class PageComponent : Component
+class PageComponent : Component
 {
     public override VisualNode Render()
-    {
-        return new NavigationPage()
-        {
-            new ContentPage()
-            {
-
-            }
-            .Title("Component With Children")
-        };
-    }
+        => NavigationPage(
+            ContentPage("Component With Children")
+            );
 }
 ```
 
@@ -45,15 +38,10 @@ public class WrapGrid : Component
 Every `Component` class can access its children using the `Children()` method (it's similar to the `{this.props.children}` property in ReactJS)
 
 ```csharp
-public class WrapGrid : Component
+class WrapGrid : Component
 {
     public override VisualNode Render()
-    {
-        return new Grid()
-        {
-            Children().ToArray()
-        };
-    }
+        => Grid(Children());
 }
 
 ```
@@ -61,14 +49,10 @@ public class WrapGrid : Component
 We can add a `ColumnCount` property and simple logic to arrange and wrap any children passed to the component like this:
 
 ```csharp
-public class WrapGrid : Component
+partial class WrapGrid : Component
 {
+    [Prop]
     private int _columnCount = 4;
-    public WrapGrid ColumnCount(int columnCount)
-    {
-        _columnCount = columnCount;
-        return this;
-    }
 
     public override VisualNode Render()
     {
@@ -104,14 +88,14 @@ public class WrapGrid : Component
 Finally, we just need to create the component from the main page and fill it with a list of child buttons:
 
 ```csharp
-public class PageState
+class PageState
 {
     public int ColumnCount { get; set; } = 1;
 
     public int ItemCount { get; set; } = 3;
 }
 
-public class PageComponent : Component<PageState>
+class PageComponent : Component<PageState>
 {
     public override VisualNode Render()
     {
@@ -122,7 +106,7 @@ public class PageComponent : Component<PageState>
                 new StackLayout()
                 { 
                     new Label($"Columns {State.ColumnCount}")
-                        .FontSize(Xamarin.Forms.NamedSize.Large),
+                        .FontSize(14),
                     new Stepper()
                         .Minimum(1)
                         .Maximum(10)

@@ -1,7 +1,7 @@
 # Table of contents
 
-* [What's New in Version 2](README.md)
-* [What is MauiReactor?](<README (1).md>)
+* [What is MauiReactor?](README.md)
+* [What's New in Version 2](<README (1).md>)
 * [Getting Started](getting-started.md)
 
 ## Components

@@ -18,14 +18,14 @@ To create a new project just issue
 dotnet new maui-reactor-startup -o my-new-project
 ```
 
-To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets too of course: net7.0-ios|net7.0-maccatalyst|windows10.0.19041.0):
+To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets too of course: net8.0-ios|net8.0-maccatalyst|windows10.0.19041.0):
 
 ```
 cd .\my-new-project\
 dotnet build -f net8.0-android
 ```
 
-To run the app under the android platform execute the following command:
+To run the app under the Android platform execute the following command:
 
 ```
 dotnet build -t:Run -f net8.0-android
@@ -37,7 +37,7 @@ You can run the ios app under MAC with the command:
 dotnet build -t:Run /p:_DeviceName=:v2:udid=<device_id> -f net8.0-ios
 ```
 
-where the device\_id is the Guid of the device that should be targeted. To find the list of available devices with the corresponding ids, run the command:
+where the device\_id is the Guid of the device that should be targeted. To find the list of available devices with the corresponding IDs, run the command:
 
 ```
 xcrun simctl list
@@ -51,6 +51,12 @@ To install it, just type the following command in the terminal:
 
 ```
 dotnet tool install -g Reactor.Maui.HotReload
+```
+
+If you want to upgrade the tool to the latest version run the command:
+
+```
+dotnet tool update -g Reactor.Maui.HotReload
 ```
 
 ## MauiReactor hot-reload console
@@ -78,6 +84,20 @@ This is the command to start it in **Full Mode**:
 dotnet-maui-reactor -f [net8.0-android|net8.0-ios|net8.0-maccatalyst|windows10.0.19041.0] --mode Full
 ```
 
+This is the typical startup messages from the hot-reload tool:
+
+```
+MauiReactor Hot-Reload CLI
+Version 2.0.19.0
+Press Ctrl+C or Ctrl+Break to quit
+Setting up build pipeline for TrackizerApp project...done.
+Monitoring folder 'C:\Source\github\mauireactor-samples\TrackizerApp'...
+```
+
+{% hint style="info" %}
+MauiReactor hot-reload keeps listening to file changes in the directory but doesn't run the application: you need to open another console to run the application or run/debug it using an IDE like Visual Studio.
+{% endhint %}
+
 ## .NET built-in hot-reload
 
 Since version 1.0.116 MauiReactor also supports .NET built-in hot-reload. This feature is enabled by default when you call the `EnableMauiReactorHotReload()` method on your application builder.
@@ -95,12 +115,12 @@ After you have installed the dotnet project template you should see it in the Vi
 After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
 
 {% hint style="warning" %}
-Microsoft has deprecated Visual Studio 2022 for Mac. To create Maui application on Mac please get a look at the .NET Maui extensions for VsCode ([https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/](https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/))
+Microsoft has deprecated Visual Studio 2022 for Mac. To create a .NET MAUI application on Mac please get a look at the .NET Maui extensions for VsCode ([https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/](https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/))
 {% endhint %}
 
 <figure><img src=".gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Select Other -> Custom -> MauiReactor based app</p></figcaption></figure>
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Hot-reloading of an Android application requires the presence of the **adb** tool.
 
 Check the adb tool is installed and working by listing the device list with the command:
@@ -128,7 +148,7 @@ If the command is not recognized then you could install it with `brew`:
 
 ## Migrate from the default MAUI project template
 
-It's totally fine to start from a standard MAUI project template: below we'll see what is required to migrate a brand new project to MauiReactor. This short guide also helps to make a port from an existing MVVM project to MauiReactor.
+It's fine to start from a standard MAUI project template: below we'll see what is required to migrate a brand-new project to MauiReactor. This short guide also helps to make a port from an existing MVVM project to MauiReactor.
 
 #### Step 1
 
