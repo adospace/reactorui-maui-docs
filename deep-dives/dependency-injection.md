@@ -70,7 +70,6 @@ public class MainPage : Component&#x3C;MainPageState>
                 )
                 .Center()
             )
-            .Title("DI Container Sample")
         );
 
     private void OnAdd()
