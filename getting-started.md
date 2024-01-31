@@ -98,6 +98,19 @@ Monitoring folder 'C:\Source\github\mauireactor-samples\TrackizerApp'...
 MauiReactor hot-reload keeps listening to file changes in the directory but doesn't run the application: you need to open another console to run the application or run/debug it using an IDE like Visual Studio.
 {% endhint %}
 
+{% hint style="warning" %}
+Under MacOS, ensure that your app is NOT executed in "sandbox mode" otherwise, hot-reload won't work.
+
+Go to Platforms->MacCatalyst->Entitlements.plist and set/update this value:
+
+```
+        <key>com.apple.security.app-sandbox</key>
+        <false/>
+```
+
+Please note that before publishing to the App Store this value must be set to true again.       &#x20;
+{% endhint %}
+
 ## .NET built-in hot-reload
 
 Since version 1.0.116 MauiReactor also supports .NET built-in hot-reload. This feature is enabled by default when you call the `EnableMauiReactorHotReload()` method on your application builder.

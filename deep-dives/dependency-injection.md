@@ -4,11 +4,16 @@ description: How to consume services with dependency injection
 
 # Dependency injection
 
+{% hint style="warning" %}
+In MauiReactor, it's recommended to put service implementations and models in a project (assembly) different from the one containing the app.\
+Hot-reloading a project that contains dependency-injected services requires them to be hosted in a different assembly/project.
+{% endhint %}
+
 MAUI.NET is deeply integrated with the Microsoft Dependency injection extensions library and provides a structured way to inject services and consume them inside ViewModel classes.
 
 MauiReactor works mainly the same except you can access services through the `Services` property inside your components.
 
-For example, let's see how to consume a simple Calc service like this:
+For example, let's see how to consume a simple Calc service like this (created in a class library referenced by the main MAUI project):
 
 ```csharp
 public class CalcService
@@ -47,40 +52,34 @@ Then we can access it inside our components:
 
 public class MainPage : Component&#x3C;MainPageState>
 {
+    [Inject]
+    CalcService _calcService;
+
     public override VisualNode Render()
-    {
-        return new NavigationPage()
-        {
-            new ContentPage()
-            { 
-                new StackLayout()
-                {
+        => NavigationPage(
+             ContentPage("DI Container Sample",
+                HStack(spacing: 10,
                     NumericEntry(State.X, v => SetState(s => s.X = v)),
-                    new Label(" + ")
+                    Label(" + ")
                         .VCenter(),
                     NumericEntry(State.Y, v => SetState(s => s.Y = v)),
-                    new Button(" + ")
+                    Button(" + ")
                         .OnClick(OnAdd),
-                    new Label(State.Result)
+                    Label(State.Result)
                         .VCenter()
-                }
-                .Spacing(10)
-                .VCenter()
-                .HCenter()
-                .WithHorizontalOrientation()
-            }
+                )
+                .Center()
+            )
             .Title("DI Container Sample")
-        };
-    }
+        );
 
     private void OnAdd()
     {
-<strong>        var calcService = Services.GetRequiredService&#x3C;CalcService>();
-</strong>        SetState(s => s.Result = calcService.Add(State.X, State.Y));
-    }
+<strong>        SetState(s => s.Result = _calcService.Add(State.X, State.Y));
+</strong>    }
 
     private Entry NumericEntry(double value, Action&#x3C;double> onSet)
-        => new Entry(value.ToString())
+        => Entry(value.ToString())
             .OnAfterTextChanged(s => onSet(double.Parse(s)))
             .Keyboard(Keyboard.Numeric)
             .VCenter();
@@ -88,7 +87,3 @@ public class MainPage : Component&#x3C;MainPageState>
 </code></pre>
 
 At line 38 we get the reference to the singleton service and call its Add method().
-
-{% hint style="info" %}
-In MauiReactor, it's recommended to put service implementations and models in a project (assembly) different from the one containing the app.
-{% endhint %}
