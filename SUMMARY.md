@@ -13,6 +13,7 @@
 * [Component Properties](components/component-properties.md)
 * [Component with children](components/component-with-children.md)
 * [Component Parameters](components/component-parameters.md)
+* [Theming](components/theming.md)
 * [Navigation](components/navigation/README.md)
   * [NavigationPage](components/navigation/navigation.md)
   * [Shell](components/navigation/shell.md)
