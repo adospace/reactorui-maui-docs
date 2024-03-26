@@ -1,5 +1,5 @@
 ---
-description: This page describes how theme widget in MauiReactor
+description: This page describes how to style controls in MauiReactor
 ---
 
 # Theming
