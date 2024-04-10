@@ -19,15 +19,17 @@ To modify the look of the button when it assumes a specific state, append one or
 
 For example, the following code changes the background color of a button when it's pressed:
 
-<pre class="language-csharp"><code class="lang-csharp">Button("Button")
-<strong>    .VisualState(nameof(CommonStates), CommonStates.Normal)
-</strong>    .VisualState(nameof(CommonStates), "Pressed", MauiControls.VisualElement.BackgroundColorProperty, Colors.Aqua)
+```csharp
+Button("Button")
+    .VisualState(nameof(CommonStates), CommonStates.Normal)
+    .VisualState(nameof(CommonStates), "Pressed", MauiControls.VisualElement.BackgroundColorProperty, Colors.Aqua)
 
-</code></pre>
+```
 
 Use [theming](../theming.md) to configure the visual states of all the buttons of your application, as shown below:
 
-<pre class="language-csharp"><code class="lang-csharp"><strong>ButtonStyles.Default = _ => _
-</strong>    .VisualState(nameof(CommonStates), CommonStates.Normal)
+```csharp
+ButtonStyles.Default = _ => _
+    .VisualState(nameof(CommonStates), CommonStates.Normal)
     .VisualState(nameof(CommonStates), "Pressed", MauiControls.VisualElement.BackgroundColorProperty, Colors.Aqua);
-</code></pre>
+```
