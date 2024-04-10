@@ -215,3 +215,20 @@ private VisualNode RenderPerson(Person person)
     .Padding(5,10);
 }
 ```
+
+
+
+## Visual States
+
+Visual states allow you to modify some properties of the item containers like the background color when items assume specific states.
+
+For example, you can link the background of the items to their selected state:
+
+```csharp
+new CollectionView()
+    .SelectionMode(MauiControls.SelectionMode.Single)
+    .ItemsSource(ItemsSource, RenderItem)
+    .ItemVisualState(nameof(CommonStates), CommonStates.Normal, MauiControls.VisualElement.BackgroundColorProperty, Colors.Transparent)
+    .ItemVisualState(nameof(CommonStates), CommonStates.Selected, MauiControls.VisualElement.BackgroundColorProperty, Colors.LightCoral)
+
+```

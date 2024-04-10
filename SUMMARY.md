@@ -19,6 +19,7 @@
   * [Shell](components/navigation/shell.md)
   * [Back button](components/navigation/back-button.md)
 * [Controls](components/controls/README.md)
+  * [Button](components/controls/button.md)
   * [RadioButton](components/controls/radiobutton.md)
   * [FlyoutPage](components/controls/flyoutpage.md)
   * [CollectionView](components/controls/collectionview/README.md)
