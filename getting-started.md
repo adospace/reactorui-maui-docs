@@ -220,7 +220,12 @@ public static MauiApp CreateMauiApp()
     builder
         .UseMauiReactorApp<MainPage>()
 #if DEBUG
-        .EnableMauiReactorHotReload()
+        .EnableMauiReactorHotReload() //enable hot reload only in debug
+        .OnMauiReactorUnhandledException(ex =>
+        { 
+            //log any MauiReactor error to the console (replace with your favorite issue tracker)
+            System.Diagnostics.Debug.WriteLine(ex.ExceptionObject);
+        })
 #endif
         .ConfigureFonts(fonts =>
         {
