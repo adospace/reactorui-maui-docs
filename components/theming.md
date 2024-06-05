@@ -159,3 +159,57 @@ Label()
 {% hint style="info" %}
 Theming also works with custom third-party controls that are scaffolded as described [here](wrap-3rd-party-controls/).
 {% endhint %}
+
+## Dark theme support
+
+The theming feature allows you to define different styles for the Dark and Light theme.
+
+For example, consider the following app theme definition:
+
+```csharp
+class AppTheme : Theme
+{
+    public static void ToggleCurrentAppTheme()
+    {
+        if (MauiControls.Application.Current != null)
+        {
+            MauiControls.Application.Current.UserAppTheme = IsDarkTheme ? Microsoft.Maui.ApplicationModel.AppTheme.Light : Microsoft.Maui.ApplicationModel.AppTheme.Dark;
+        }
+    }
+
+    public static Color DarkBackground { get; } = Color.FromArgb("#FF17171C");
+    public static Color DarkText { get; } = Color.FromArgb("#FFFFFFFF");
+    public static Color LightBackground { get; } = Color.FromArgb("#FFF1F2F3");
+    public static Color LightText { get; } = Color.FromArgb("#FF000000");
+
+    protected override void OnApply()
+    {
+        ContentPageStyles.Default = _ => _
+            .BackgroundColor(IsDarkTheme ? DarkBackground : LightBackground);
+
+        LabelStyles.Default = _ => _
+            .TextColor(IsDarkTheme ? DarkText : LightText);
+    }
+}
+```
+
+MauiReactor automatically responds to user or system theme change requests and accordingly calls the OnApply overload to allow you to change styles for the Dark and Light theme.
+
+For example:
+
+```csharp
+public override VisualNode Render()
+ => ContentPage(
+        VStack(
+            Label($"Current Theme: {Theme.CurrentAppTheme} "),
+
+            Button("Toggle", ()=>AppTheme.ToggleCurrentAppTheme())
+            )
+        .Spacing(10)
+        .Center()
+    );
+```
+
+The above code builds this app page:
+
+<figure><img src="../.gitbook/assets/DarkThemeSupport.gif" alt=""><figcaption><p>Dark theme sample app</p></figcaption></figure>
