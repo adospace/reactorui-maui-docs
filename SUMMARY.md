@@ -32,6 +32,7 @@
   * [IndicatorView](components/controls/indicatorview.md)
   * [Picker](components/controls/picker.md)
   * [Shell](components/controls/shell.md)
+  * [Label](components/controls/label.md)
 * [Wrap 3rd party controls](components/wrap-3rd-party-controls/README.md)
   * [Lottie animations](components/wrap-3rd-party-controls/lottie-animations.md)
   * [Provide DataTemplate to native controls](components/wrap-3rd-party-controls/provide-datatemplate-to-native-controls.md)
