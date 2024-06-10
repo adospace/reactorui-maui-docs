@@ -1,5 +1,5 @@
 ---
-description: This page describe how you handle selction of items in a CollectionView
+description: This page describe how you handle selection of items in a CollectionView
 ---
 
 # Selection
