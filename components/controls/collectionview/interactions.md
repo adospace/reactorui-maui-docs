@@ -35,25 +35,22 @@ class MainPageSwipe : Component<MainPageSwipeState>
 
     public override VisualNode Render()
     {
-        return new ContentPage
-        {
-            new CollectionView()
+        return ContentPage(
+            CollectionView()
                 .ItemsSource(State.Persons, RenderPerson)
-        };
+        );
     }
 
     private VisualNode RenderPerson(Person person)
     {
-        return new SwipeView
-        {
-            new VStack(spacing: 5)
-            {
-                new Label($"{person.FirstName} {person.LastName}"),
-                new Label(person.DateOfBirth.ToShortDateString())
+        return SwipeView(
+            VStack(spacing: 5,
+                Label($"{person.FirstName} {person.LastName}"),
+                Label(person.DateOfBirth.ToShortDateString())
                     .FontSize(12)
-            }
+            )
             .VCenter()
-        }
+        )
         .LeftItems(new SwipeItems
         {
             new SwipeItem()
@@ -107,16 +104,14 @@ class MainPagePullToRefresh : Component<MainPagePullToRefreshState>
 
     public override VisualNode Render()
     {
-        return new ContentPage
-        {
-            new RefreshView
-            {
-                new CollectionView()
+        return new ContentPage(
+            RefreshView(
+                CollectionView()
                     .ItemsSource(State.Persons, RenderPerson)
-            }
+            )
             .IsRefreshing(State.IsRefreshing)
             .OnRefreshing(OnRefresh)
-        };
+        );
     }
 
     private void OnRefresh()

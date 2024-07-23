@@ -38,22 +38,20 @@ protected override void OnMounted()
 
 public override VisualNode Render()
 {
-    return new ContentPage
-    {
-        new CollectionView()
+    return ContentPage(
+        CollectionView()
             .ItemsSource(State.Persons, RenderPerson)
-    };
+    );
 }
 
 private VisualNode RenderPerson(Person person)
 {
-    return new VStack(spacing: 5)
-    {
-        new Label($"{person.FirstName} {person.LastName}"),
-        new Label(person.DateOfBirth.ToShortDateString())
+    return VStack(spacing: 5,
+        Label($"{person.FirstName} {person.LastName}"),
+        Label(person.DateOfBirth.ToShortDateString())
             .FontSize(12)
             .TextColor(Colors.Gray)
-    }
+    )
     .Margin(5,10);
 }
 ```
