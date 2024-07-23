@@ -111,6 +111,16 @@ Go to Platforms->MacCatalyst->Entitlements.plist and set/update this value:
 Please note that before publishing to the App Store this value must be set to true again.       &#x20;
 {% endhint %}
 
+{% hint style="info" %}
+You can also hot-reload applications running in an iOS emulator using Windows and Visual Studio: use the `-h/--host` command line arguments to set the remote Mac host.
+
+For example:\
+`dotnet-maui-reactor -f net8.0-ios -h ip-of-the-mac`
+
+For more info on how to debug iOS applications from Visual Studio under Windows please get a look at the  .NET MAUI official documentation:\
+[https://learn.microsoft.com/en-us/dotnet/maui/ios/remote-simulator?view=net-maui-8.0](https://learn.microsoft.com/en-us/dotnet/maui/ios/remote-simulator?view=net-maui-8.0)
+{% endhint %}
+
 ## .NET built-in hot-reload
 
 Since version 1.0.116 MauiReactor also supports .NET built-in hot-reload. This feature is enabled by default when you call the `EnableMauiReactorHotReload()` method on your application builder.
