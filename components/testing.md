@@ -6,7 +6,7 @@ description: Describes how test MauiReactor components
 
 Testing an application usually involves 3 different kinds of tests.
 
-1. **Unit Tests**: Tests of single functions or classes aiming to prove the correctness of single behavior or feature or absence of a specific issue. You can create unit tests for your maui app like you would do for any other c# program.
+1. **Unit Tests**: Tests of single functions or classes aiming to prove the correctness of a single behavior or feature or absence of a specific issue. You can create unit tests for your .NET MAUI app as you would for any other c# program.
 2. **Component or Widget Tests**: These kinds of tests are specific to UI apps that use an MVU framework and serve to prove the quality of single components. \
    MauiReactor provides some neat classes and functions that let you test MauiReactor components: this article describes how to use them.
 3. **Integration Tests**: This kind of test, generally, involves the loading of external tools that simulate the real environment, the execution of the app with different settings, and the simulation of a user interacting with the app. \
@@ -14,14 +14,14 @@ Testing an application usually involves 3 different kinds of tests.
 
 ## Preliminary steps
 
-First of all, you need to modify your .NET MAUI application project so that can be linked to a test project.&#x20;
+First, you need to modify your .NET MAUI application project to be linked to a test project.&#x20;
 
 Open your project definition; it should be something like the following:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <RootNamespace>KeeMind</RootNamespace>
@@ -34,13 +34,13 @@ Open your project definition; it should be something like the following:
 
 ```
 
-Add the target framework `net7.0` (or the current one the app is targeting) and put a condition on the `OutputType` header so that the MSBuild task doesn't produce an exe under the plain `net7.0` framework.
+Add the target framework `net8.0` (or the current one the app is targeting) and put a condition on the `OutputType` header so that the MSBuild task doesn't produce an exe under the plain `net8.0` framework.
 
 <pre class="language-xml" data-line-numbers><code class="lang-xml">&#x3C;Project Sdk="Microsoft.NET.Sdk">
   &#x3C;PropertyGroup>
-<strong>    &#x3C;TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst;net7.0&#x3C;/TargetFrameworks>
+<strong>    &#x3C;TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0&#x3C;/TargetFrameworks>
 </strong>    &#x3C;TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0&#x3C;/TargetFrameworks>
-<strong>    &#x3C;OutputType Condition="'$(TargetFramework)' != 'net7.0'">Exe&#x3C;/OutputType>
+<strong>    &#x3C;OutputType Condition="'$(TargetFramework)' != 'net8.0'">Exe&#x3C;/OutputType>
 </strong>    &#x3C;RootNamespace>KeeMind&#x3C;/RootNamespace>
     &#x3C;UseMaui>true&#x3C;/UseMaui>
     &#x3C;SingleProject>true&#x3C;/SingleProject>
@@ -50,10 +50,6 @@ Add the target framework `net7.0` (or the current one the app is targeting) and 
 &#x3C;/Project>
 </code></pre>
 
-{% hint style="warning" %}
-Be sure to add `net7.0` framework (line 3) as the last one otherwise Visual Studio for Mac won't load the project
-{% endhint %}
-
 This way the app project can be referenced in the test project.
 
 Now let's create a test project, and choose the framework you like most (MSTest, xUnit, nUnit, etc).
@@ -61,13 +57,19 @@ Now let's create a test project, and choose the framework you like most (MSTest,
 As a final step, you have to reference the MAUI controls library in the test project adding the `<UseMaui>` header in the project definition:
 
 <pre class="language-xml"><code class="lang-xml">  &#x3C;PropertyGroup>
-    &#x3C;TargetFramework>net7.0&#x3C;/TargetFramework>
+    &#x3C;TargetFramework>net8.0&#x3C;/TargetFramework>
     &#x3C;ImplicitUsings>enable&#x3C;/ImplicitUsings>
     &#x3C;Nullable>enable&#x3C;/Nullable>
 <strong>    &#x3C;UseMaui>true&#x3C;/UseMaui>
 </strong>
     &#x3C;IsPackable>false&#x3C;/IsPackable>
   &#x3C;/PropertyGroup>
+
+  &#x3C;ItemGroup>
+    &#x3C;PackageReference Include="Microsoft.Maui.Controls" Version="8.0.*" />
+    &#x3C;PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.*" />
+  &#x3C;/ItemGroup>
+  
 </code></pre>
 
 ## Test components
@@ -77,7 +79,7 @@ The `TemplateHost` is the key class to use when you want to test a component: it
 To create a `TemplateHost` just use a code like this:\
 `TemplateHost.Create(new MyComponent());`
 
-As you have the template host you can use some helper methods on it to traverse the tree to access native controls, check properties and raise events.
+As you have the template host you can use some helper methods on it to traverse the tree to access native controls, check properties, and raise events.
 
 For example, say we want to test this component:
 
@@ -111,7 +113,7 @@ new ContentPage
 }
 ```
 
-We can finally create a test the verify that the counter is working:
+We can finally create a test to verify that the counter is working:
 
 ```csharp
 var mainPageNode = TemplateHost.Create(new CounterWithServicePage());
@@ -151,7 +153,7 @@ You have to dispose of the `ServiceContext` object at the end of the test, even 
 ## Attach components created with a page or modal
 
 Often your components are hosted on a page that is created at runtime for example when the user pushes a button.\
-In this case, you need to "attach" the new component using the NavigationContainer class as it's shown in the following sample code:
+In this case, you need to "attach" the new component using the NavigationContainer class as shown in the following sample code:
 
 ```csharp
 using var navigationContainer = new NavigationContainer();
@@ -186,6 +188,6 @@ mainPageNode.Find<MauiControls.Label>("MainPage_Label")
 ```
 
 {% hint style="warning" %}
-As for the `ServiceConteiner`also the `NavigationContainer`object must be disposed of when the test ends; again it's a good idea to wrap it with the `using` keyword
+As for the `ServiceConteiner`also the `NavigationContainer` the object must be disposed of when the test ends; again it's a good idea to wrap it with the `using` keyword
 {% endhint %}
 
