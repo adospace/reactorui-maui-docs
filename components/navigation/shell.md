@@ -22,26 +22,22 @@ In the following code we'll create a Shell with 2 FlyoutItem:
 class MainPage : Component
 {
     public override VisualNode Render() 
-        => new Shell
-        {
-            new FlyoutItem("Page1")
-            {
-                new ContentPage("Page1")
-            },
-            new FlyoutItem("Page2")
-            {
-                new ContentPage("Page2")
-            }
-        }
+        => Shell(
+            FlyoutItem("Page1",
+                ContentPage("Page1")
+            ),
+            FlyoutItem("Page2",
+                ContentPage("Page2")
+            )
+        )
         .ItemTemplate(RenderItemTemplate);
 
     static VisualNode RenderItemTemplate(MauiControls.BaseShellItem item)
-        => new Grid("68", "*")
-        {
-            new Label(item.Title)
+        => Grid("68", "*",
+            Label(item.Title)
                 .VCenter()
                 .Margin(10,0)
-        };
+        );
 }
 ```
 
@@ -59,19 +55,16 @@ To load pages on demand you have to provide a callback function to the `ShellCon
 
 ```csharp
 public override VisualNode Render() 
-    => new Shell
-    {
-        new FlyoutItem("Page1")
-        {
-            new ShellContent()
+    => Shell(
+        FlyoutItem("Page1",
+            ShellContent()
                 .RenderContent(() => new ContentPage("Page1"))
-        },
-        new FlyoutItem("Page2")
-        {
-            new ShellContent()
+        ),
+        FlyoutItem("Page2",
+            ShellContent()
                 .RenderContent(() => new ContentPage("Page2"))
-        }
-    }
+        )
+    )
     .ItemTemplate(RenderItemTemplate);
 ```
 
@@ -81,33 +74,29 @@ You can attach a route to a Shell item and navigate between pages calling the st
 
 ```csharp
 public override VisualNode Render() 
-    => new Shell
-    {
-        new FlyoutItem("Page1")
-        {
-            new ShellContent()
-                .RenderContent(() => new ContentPage("Page1")
-                {
-                    new Button("Goto to Page2")
+    => Shell(
+        FlyoutItem("Page1",
+            ShellContent()
+                .RenderContent(() => new ContentPage("Page1",
+                    Button("Goto to Page2")
                         .HCenter()
                         .VCenter()
                     .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync("//page-2"))
-                })
-        }
+                ))
+        )
         .Route("page-1"),
-        new FlyoutItem("Page2")
-        {
-            new ShellContent()
-                .RenderContent(() => new ContentPage("Page2")
-                {
-                    new Button("Goto to Page1")
+        
+        FlyoutItem("Page2",
+            ShellContent()
+                .RenderContent(() => ContentPage("Page2",
+                    Button("Goto to Page1")
                         .HCenter()
                         .VCenter()
                     .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync("//page-1"))
-                })
-        }
+                ))
+        )
         .Route("page-2")
-    }
+    )
     .ItemTemplate(RenderItemTemplate);
 
 ```
@@ -127,42 +116,37 @@ It's not required that you declare routes for all of your pages using items of t
     }
 
     public override VisualNode Render()
-        => new Shell()
-        {
-            new FlyoutItem("Page1")
-            {
-                new ShellContent()
-                    .RenderContent(() => new ContentPage("Page1")
-                    {
-                        new Button("Goto to Page2")
+        => Shell(
+            FlyoutItem("Page1",
+                ShellContent()
+                    .RenderContent(() => ContentPage("Page1",
+                        Button("Goto to Page2")
                             .HCenter()
                             .VCenter()
                         .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync("page-2"))
-                    })
-            }
-        }
+                    ))
+            )
+        )
         .ItemTemplate(RenderItemTemplate);            
 
     static VisualNode RenderItemTemplate(MauiControls.BaseShellItem item)
-        => new Grid("68", "*")
-        {
-            new Label(item.Title)
+        => Grid("68", "*",
+            Label(item.Title)
                 .VCenter()
                 .Margin(10,0)
-        };
+        );
 }
 
 class Page2 : Component
 {
     public override VisualNode Render()
     {
-        return new ContentPage("Page2")
-        {
-            new Button("Goto back")
+        return ContentPage("Page2",
+            Button("Goto back")
                 .HCenter()
                 .VCenter()
             .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync(".."))
-        };
+        );
     }
 }
 </code></pre>
@@ -187,31 +171,27 @@ class MainPage : Component
     }
 
     public override VisualNode Render()
-        => new Shell()
-        {
-            new FlyoutItem("Page1")
-            {
-                new ShellContent()
-                    .RenderContent(() => new ContentPage("Page1")
-                    {
-                        new Button("Goto to Page2")
+        => Shell(
+            FlyoutItem("Page1",
+                ShellContent()
+                    .RenderContent(() => ContentPage("Page1",
+                        Button("Goto to Page2")
                             .HCenter()
                             .VCenter()
                         .OnClicked(async ()=> 
                         await MauiControls.Shell.Current.GoToAsync<Page2Props>
                             ("page-2", props => props.Id = 23))
-                    })
-            }
-        }
+                    ))
+            )
+        )
         .ItemTemplate(RenderItemTemplate);            
 
     static VisualNode RenderItemTemplate(MauiControls.BaseShellItem item)
-        => new Grid("68", "*")
-        {
-            new Label(item.Title)
+        => Grid("68", "*",
+            Label(item.Title)
                 .VCenter()
                 .Margin(10,0)
-        };
+        );
 }
 
 class Page2State
@@ -225,13 +205,12 @@ class Page2 : Component<Page2State, Page2Props>
 {
     public override VisualNode Render()
     {
-        return new ContentPage("Page2")
-        {
-            new Button($"Received Id: {Props.Id}")
+        return ContentPage("Page2",
+             Button($"Received Id: {Props.Id}")
                 .HCenter()
                 .VCenter()
             .OnClicked(async ()=> await MauiControls.Shell.Current.GoToAsync(".."))
-        };
+        );
     }
 }
 ```
