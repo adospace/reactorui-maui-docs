@@ -71,4 +71,4 @@ class MainPage : Component<MainPageState>
 
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>MauiReactor Picker in action</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>MauiReactor Picker in action</p></figcaption></figure>
