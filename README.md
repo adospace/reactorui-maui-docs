@@ -53,7 +53,7 @@ ReactorMaui ports .NET MAUI controls to C#:
 
 You can read for examples and more complex controls at [Controls](https://adospace.gitbook.io/mauireactor/components/controls)
 
-Also, you can opt to use ReactorMaui C# components within XAML files as described at [XAML Intregration](https://adospace.gitbook.io/mauireactor/components/xaml-integration)
+Also, you can opt to use ReactorMaui C# components within XAML files as described at [XAML Integration](https://adospace.gitbook.io/mauireactor/components/xaml-integration)
 
 {% hint style="info" %}
 **Good to know:** There are several design patterns you can choose when you build a UI. One of the most adopted is the MVVM (Model-View-View-Model) approach, used for years to build desktop and mobile applications. React made famous the MVU (Model-View-Update) pattern that aims to solve some issues of the first one. MAUI app defaults to MVVM while MauiReactor lets you build a MAUI app using the MVU pattern.
