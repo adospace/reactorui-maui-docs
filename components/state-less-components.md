@@ -98,11 +98,11 @@ We could create a component like this:
 <pre class="language-csharp"><code class="lang-csharp"><strong>partial class EntryWithLabel : Component
 </strong>{
     [Prop]
-    string _label;
-    
+    string _labelText;
+
     public override VisualNode Render()
       => VStack(
-            Label(_label),
+            Label(_labelText),
             Entry()
         );
 }
@@ -117,9 +117,9 @@ class MainPage : Component
         => ContentPage("Login",
             VStack(
                 new EntryWithLabel()
-                    .Label("User:"),
+                    .LabelText("User:"),
                 new EntryWithLabel()
-                    .Label("Password:"),
+                    .LabelText("Password:"),
                 HStack(
                     Button("Login"),
                     Button("Register")
