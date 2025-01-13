@@ -31,7 +31,7 @@ partial class MudEntry : Component<MudEntryState>
     [Prop]
     Action<string>? _textChanged;
     [Prop]
-    string _label;
+    string _labelText;
 
     public override VisualNode Render()
      => Grid("Auto", "*",
@@ -41,7 +41,7 @@ partial class MudEntry : Component<MudEntryState>
                 .OnFocused(()=>SetState(s => s.Focused = true))
                 .OnUnfocused(()=>SetState(s => s.Focused = false)),
 
-            Label(_label)                
+            Label(_labelText)                
                 .OnTapped(()=>_entryRef?.Focus())
                 .Margin(5,0)
                 .HStart()
@@ -62,7 +62,11 @@ partial class MudEntry : Component<MudEntryState>
 }
 ```
 
-MauiReactor allows you to collapse the component + state in the single declaration that you can return from a function:
+MauiReactor allows you to collapse the component + state in a single declaration that you can return from a function:
+
+{% hint style="info" %}
+In the above example, we set the field name to `_labelText` instead of the more obvious `_label` to avoid name collisions with the component `Label()`&#x20;
+{% endhint %}
 
 <pre class="language-csharp" data-line-numbers><code class="lang-csharp">static VisualNode RenderMudEntry(string label, Action&#x3C;string> textChangedAction)
 <strong>    => Render&#x3C;(bool IsFocused, bool IsFilled)>(state =>
