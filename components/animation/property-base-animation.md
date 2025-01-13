@@ -20,7 +20,7 @@ public class MainPageState
     public bool Toggle { get; set; }
 }
 
-public class MainPage : RxComponent<MainPageState>
+public class MainPage : Component<MainPageState>
 {
     public override VisualNode Render()
     {
