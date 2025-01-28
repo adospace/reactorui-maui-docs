@@ -6,10 +6,6 @@ description: Describes the list of changes present in Version 3 of MauiReactor
 
 Version 3 of MauiReactor targets MAUI .NET 9. If you're using an earlier version of MauiReactor, please note the following short-step list of changes required to move forward to version 3.
 
-{% hint style="warning" %}
-MauiReactor 3 is still in beta, even if the external API surface has not changed much many parts of the code have been modified under the hood to enhance performance. If you want to experiment with the latest version please update your packages to the latest -beta version ([https://www.nuget.org/packages/Reactor.Maui](https://www.nuget.org/packages/Reactor.Maui))
-{% endhint %}
-
 {% hint style="info" %}
 For an up-to-date list of new features for MauiReactor 3 please head to [https://github.com/adospace/reactorui-maui/issues/263](https://github.com/adospace/reactorui-maui/issues/263)
 {% endhint %}
