@@ -98,7 +98,7 @@ for more info on this specific feature please take a look at:
 
 * [https://github.com/adospace/reactorui-maui/blob/main/samples/MauiReactor.TestApp/Pages/ParametersPage.cs](https://github.com/adospace/reactorui-maui/blob/main/samples/MauiReactor.TestApp/Pages/ParametersPage.cs)
 * [https://github.com/adospace/kee-mind](https://github.com/adospace/kee-mind) (KeeMind app makes extensive use of this feature)
-* [https://app.gitbook.com/s/h1eh1igwiwRzrw2kbxSp/\~/changes/55/components/component-parameters](https://app.gitbook.com/s/h1eh1igwiwRzrw2kbxSp/\~/changes/55/components/component-parameters)
+* [Component Parameters](../components/component-parameters.md)
 
 
 
