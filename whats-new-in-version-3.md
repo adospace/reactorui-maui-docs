@@ -124,3 +124,15 @@ MauiReactor 3 is fully AOT compatible: to compile your application to a native i
 Please follow official guidelines to enable the AOT compilation in your .NET 9 MAUI app: [https://learn.microsoft.com/en-us/dotnet/maui/deployment/nativeaot?view=net-maui-9.0](https://learn.microsoft.com/en-us/dotnet/maui/deployment/nativeaot?view=net-maui-9.0)
 {% endhint %}
 
+## Unhandled exception callback
+
+In version 3 you can configure an unhandled exception callback using this code:
+
+```csharp
+.UseMauiReactorApp<ShellPage>(
+    unhandledExceptionAction: args =>
+    {
+        Trace.WriteLine(args.ExceptionObject);
+    })
+```
+

@@ -2,7 +2,7 @@
 description: Describes how to setup a MauiReactor project
 ---
 
-# Getting Started
+# Getting Started Version 2
 
 ## Creating a new MauiReactor project from CLI
 
@@ -18,17 +18,29 @@ To create a new project just issue
 dotnet new maui-reactor-startup -o my-new-project
 ```
 
-To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets like  net9.0-ios, net9.0-maccatalyst, or windows10.0.19041.0):
+To build the project just move inside the project directory and run the usual dotnet build command like this (in the example below we'll use the android target, the same applies to the other targets too of course: net8.0-ios|net8.0-maccatalyst|windows10.0.19041.0):
 
 ```
 cd .\my-new-project\
-dotnet build -f net9.0-android
+dotnet build -f net8.0-android
 ```
 
 To run the app under the Android platform execute the following command:
 
 ```
-dotnet build -t:Run -f net9.0-android
+dotnet build -t:Run -f net8.0-android
+```
+
+You can run the ios app under MAC with the command:
+
+```
+dotnet build -t:Run /p:_DeviceName=:v2:udid=<device_id> -f net8.0-ios
+```
+
+where the device\_id is the Guid of the device that should be targeted. To find the list of available devices with the corresponding IDs, run the command:
+
+```
+xcrun simctl list
 ```
 
 ## Install MauiReactor hot-reload console
@@ -47,23 +59,6 @@ If you want to upgrade the tool to the latest version run the command:
 dotnet tool update -g Reactor.Maui.HotReload
 ```
 
-Finally, you have to modify the project definition by adding the following lines:
-
-```xml
-<ItemGroup Condition="'$(Configuration)'=='Debug'">
-  <RuntimeHostConfigurationOption Include="MauiReactor.HotReload" Value="true" Trim="false" />
-</ItemGroup>
-<ItemGroup Condition="'$(Configuration)|$(TargetFramework)'=='Release|net9.0-ios'">
-  <RuntimeHostConfigurationOption Include="MauiReactor.HotReload" Value="false" Trim="true" />
-</ItemGroup>
-```
-
-{% hint style="info" %}
-The first ItemGroup sets the MauiReactor.HotReload feature switch.
-
-The second ItemGroup (optional) is required to enable the AOT feature under iOS.
-{% endhint %}
-
 ## MauiReactor hot-reload console
 
 MauiReactor hot reload can work in two different modes: **Simple** and **Full**
@@ -80,20 +75,20 @@ MauiReactor hot reload can work in two different modes: **Simple** and **Full**
 To start the hot-reload console in **Simple Mode**:
 
 ```
-dotnet-maui-reactor -f [net9.0-android|net9.0-ios|net9.0-maccatalyst|windows10.0.19041.0]
+dotnet-maui-reactor -f [net8.0-android|net8.0-ios|net8.0-maccatalyst|windows10.0.19041.0]
 ```
 
 This is the command to start it in **Full Mode**:
 
 ```
-dotnet-maui-reactor -f [net9.0-android|net9.0-ios|net9.0-maccatalyst|windows10.0.19041.0] --mode Full
+dotnet-maui-reactor -f [net8.0-android|net8.0-ios|net8.0-maccatalyst|windows10.0.19041.0] --mode Full
 ```
 
 This is the typical startup messages from the hot-reload tool:
 
 ```
 MauiReactor Hot-Reload CLI
-Version 3.0.19.0
+Version 2.0.19.0
 Press Ctrl+C or Ctrl+Break to quit
 Setting up build pipeline for TrackizerApp project...done.
 Monitoring folder 'C:\Source\github\mauireactor-samples\TrackizerApp'...
@@ -120,11 +115,33 @@ Please note that before publishing to the App Store this value must be set to tr
 You can also hot-reload applications running in an iOS emulator using Windows and Visual Studio: use the `-h/--host` command line arguments to set the remote Mac host.
 
 For example:\
-`dotnet-maui-reactor -f net9.0-ios -h ip-of-the-mac`
+`dotnet-maui-reactor -f net8.0-ios -h ip-of-the-mac`
 
 For more info on how to debug iOS applications from Visual Studio under Windows please get a look at the  .NET MAUI official documentation:\
 [https://learn.microsoft.com/en-us/dotnet/maui/ios/remote-simulator?view=net-maui-8.0](https://learn.microsoft.com/en-us/dotnet/maui/ios/remote-simulator?view=net-maui-8.0)
 {% endhint %}
+
+## .NET built-in hot-reload
+
+Since version 1.0.116 MauiReactor also supports .NET built-in hot-reload. This feature is enabled by default when you call the `EnableMauiReactorHotReload()` method on your application builder.
+
+To enable the hot-reload for MAUI projects and an updated list of supported edits please look at the official documentation [here](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022).
+
+## Create a new project in Visual Studio 2022
+
+After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
+
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Select the MauiReactor based app template</p></figcaption></figure>
+
+## Create a new project in Visual Studio 2022 for Mac
+
+After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
+
+{% hint style="warning" %}
+Microsoft has deprecated Visual Studio 2022 for Mac. To create a .NET MAUI application on Mac please get a look at the .NET Maui extensions for VsCode ([https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/](https://devblogs.microsoft.com/visualstudio/announcing-the-dotnet-maui-extension-for-visual-studio-code/))
+{% endhint %}
+
+<figure><img src=".gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Select Other -> Custom -> MauiReactor based app</p></figcaption></figure>
 
 {% hint style="info" %}
 Hot-reloading of an Android application requires the presence of the **adb** tool.
@@ -152,18 +169,6 @@ If the command is not recognized then you could install it with `brew`:
     ```
 {% endhint %}
 
-## .NET built-in hot-reload
-
-MauiReactor also supports .NET built-in hot-reload. This feature is enabled by default when you call the `MauiReactor.HotReload` feature is set.
-
-To enable the hot-reload for MAUI projects and an updated list of supported edits please look at the official documentation [here](https://learn.microsoft.com/en-us/visualstudio/debugger/hot-reload?view=vs-2022).
-
-## Create a new project in Visual Studio 2022
-
-After you have installed the dotnet project template you should see it in the Visual Studio project creation dialog:
-
-<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Select the MauiReactor based app template</p></figcaption></figure>
-
 ## Migrate from the default MAUI project template
 
 It's fine to start from a standard MAUI project template: below we'll see what is required to migrate a brand-new project to MauiReactor. This short guide also helps to make a port from an existing MVVM project to MauiReactor.
@@ -173,7 +178,7 @@ It's fine to start from a standard MAUI project template: below we'll see what i
 Include the latest version of the MauiReactor package (select the latest version):
 
 ```
-<PackageReference Include="Reactor.Maui" Version="3.0.*" />
+<PackageReference Include="Reactor.Maui" Version="2.0.*" />
 ```
 
 Even if not strictly required, I suggest removing the ImplicitUsings directive in the csproj file:
@@ -224,6 +229,14 @@ public static MauiApp CreateMauiApp()
     var builder = MauiApp.CreateBuilder();
     builder
         .UseMauiReactorApp<MainPage>()
+#if DEBUG
+        .EnableMauiReactorHotReload() //enable hot reload only in debug
+        .OnMauiReactorUnhandledException(ex =>
+        { 
+            //log any MauiReactor error to the console (replace with your favorite issue tracker)
+            System.Diagnostics.Debug.WriteLine(ex.ExceptionObject);
+        })
+#endif
         .ConfigureFonts(fonts =>
         {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

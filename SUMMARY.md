@@ -4,6 +4,7 @@
 * [What's new in Version 2](<README (1).md>)
 * [What's new in Version 3](whats-new-in-version-3.md)
 * [Getting Started](getting-started.md)
+* [Getting Started Version 2](getting-started-1.md)
 
 ## Components
 
