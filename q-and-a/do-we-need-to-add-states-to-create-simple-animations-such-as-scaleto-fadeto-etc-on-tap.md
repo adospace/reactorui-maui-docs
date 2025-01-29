@@ -1,6 +1,6 @@
 # Do we need to add states to create simple animations such as ScaleTo, FadeTo, etc on tap?
 
-Even if RxAnimations or AnimationController class are a primary way to create animations in MauiReactor, it's not, of course, strictly required.
+Even if RxAnimations or AnimationController class are the primary way to create animations in MauiReactor, aren't strictly required.
 
 Take for example how we can create an animated button: we want the user to see a scale animation when clicking over a widget (Image, Button, etc).
 
