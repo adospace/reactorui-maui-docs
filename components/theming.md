@@ -17,6 +17,10 @@ For example, the following XAML styles the Label with a custom text color and fo
 
 MauiReactor supports XAML styling as well, you just need to reference your XAML files when setting up the MauiReactor application as shown below:
 
+{% hint style="warning" %}
+Since version 3, MauiReactor has had a different way of handling XAML resources, which can be seen [here](../whats-new-in-version-3.md).
+{% endhint %}
+
 ```csharp
 builder
     .UseMauiReactorApp<HomePage>(app =>
