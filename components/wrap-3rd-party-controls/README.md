@@ -33,6 +33,10 @@ A VisualNode is a node in the Visual Tree that MauiReactor creates for each page
 MauiReactor can handle any kind of MAUI controls, but for some, the bare-bone wrapper is created automatically by the `ScaffoldGenerator` is not enough to handle every aspect of the native widget (for example when a `DataTemplate` is used to render child items). For those that are required to handle such behavior please take a look at the MauiReactor code (especially the implementation of wrappers for ItemsView and Shell) or open an issue [here](https://github.com/adospace/reactorui-maui/issues)
 {% endhint %}
 
+{% hint style="info" %}
+Please take a look at the MauiReactor integrations repository [here](https://github.com/adospace/mauireactor-integration): you'll find many wrappers for most common 3rd party control vendors
+{% endhint %}
+
 As you have the wrapper you can use it in a component as any other control:
 
 ```csharp
