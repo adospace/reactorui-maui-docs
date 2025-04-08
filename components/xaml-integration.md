@@ -6,27 +6,42 @@ description: >-
 
 # XAML Integration
 
-Sometimes you may want to adopt the MVU approach only for a portion of the application, for example, when you have already developed a XAML-based app and are not ready to completely re-write it using a different framework like MauiReactor.
+Sometimes, you may want to adopt the MVU approach only for a portion of the application. For example, when you have already developed an XAML-based app and are not ready to completely rewrite it using a different framework like MauiReactor.
 
-XAML integration in MauiReactor allows us to run a MauiReactor component inside a standard MAUI page or view. You can even use MauiReactor component for an entire page while the rest of the app uses a classic MVVM approach.
+XAML integration in MauiReactor allows you to run a MauiReactor component inside a standard MAUI page or view. You can even use a MauiReactor component for an entire page while the rest of the app uses a classic MVVM approach.
 
 {% hint style="warning" %}
-Using MauiReactor (i.e. MVU) for the entire application remains the recommended way.
+Using MauiReactor (i.e., MVU) for the entire application remains recommended.
 
 Consider this feature if you are facing the following scenarios:
 
-1\) You have completed the development of a standard MAUI application or are in an advanced stage of the process where moving to MauiReactor is not feasible but you're interested in adopting MauiReactor in the future
+1\) You have completed the development of a standard MAUI application or are in an advanced stage of the process where moving to MauiReactor is not feasible, but you're interested in adopting MauiReactor in the future
 
 2\) You may want to adopt/experiment with the MVU approach for some specific portion or page of the UI
 
 Do not mix MVU and MVVM code/approaches but use the dependency inject to share services.
 {% endhint %}
 
-Let's start by adding MauiReactor Nuget package to the project:
+1\) Let's start by adding the MauiReactor Nuget package to the project (pick the latest version):
 
 `dotnet add package Reactor.Maui`
 
-To host a MauiReactor component on your page please use the `ComponenHost` class like it's shown in the following snippet code:
+2\) Configure the application to use MauiReactor:
+
+<pre class="language-csharp" data-line-numbers><code class="lang-csharp">var builder = MauiApp.CreateBuilder();
+builder
+    .UseMauiApp&#x3C;App>()
+<strong>    .UseMauiReactor() //&#x3C;--- ADD THIS LINE
+</strong>    .ConfigureFonts(fonts =>
+    {
+        fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+        fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+    });
+</code></pre>
+
+## Host a MauiReactor component
+
+To host a MauiReactor component on your page, please use the `ComponenHost` class like it's shown in the following snippet code:
 
 <pre class="language-xml" data-line-numbers><code class="lang-xml">&#x3C;?xml version="1.0" encoding="utf-8" ?>
 &#x3C;ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -77,9 +92,9 @@ To host a MauiReactor component on your page please use the `ComponenHost` class
 
 In line 4, you have to specify the MauiReactor namespace and assembly containing the `ComponentHost` class.
 
-In lines 33 and 34 we're going to create an instance of the control `ComponentHost` passing the `Counter` component type as a parameter: the `ComponentHost` class will instantiate and run the component.
+In lines 33 and 34, we're going to create an instance of the control `ComponentHost` passing the `Counter` component type as a parameter: the `ComponentHost` class will instantiate and run the component.
 
-Of course the same can be done in code:
+Of course, the same can be done in code:
 
 ```csharp
 var componentHost = new MauiReactor.ComponentHost
@@ -87,6 +102,8 @@ var componentHost = new MauiReactor.ComponentHost
     Component = typeof(Counter)
 }
 ```
+
+## Host a MauiReactor page
 
 Another way to integrate a MauiReactor component is to navigate to another page passing a component as its root using the overload of the `Navigation` class `Navigation.PushAsync<Component-Type>()`
 
