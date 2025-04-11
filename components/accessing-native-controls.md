@@ -4,6 +4,24 @@ description: Describes how access the underling native control
 
 # Accessing native controls
 
+## Set native controls dependency properties
+
+Sometimes, you need to set a specific dependency property of the native control:
+
+```csharp
+new Button()
+    .Set(BindableProperty property, object? value);
+```
+
+If you want to set an attached dependency property:
+
+```csharp
+new Button()
+    .SetAttachedProperty(BindableProperty property, object? value);
+```
+
+## Get reference to native controls
+
 Sometimes you need a reference to the native control (i.e. MAUI control); for example, say you need to move focus to Entry control when the component starts up.
 
 In MauiReactor, you can get a reference to the underlying widget passing an Action argument when constructing the visual object accepting the reference to the native control: you can easily save it in a private field and reuse it wherever.&#x20;
@@ -40,16 +58,3 @@ public class MainPage : Component
 The page containing the current component is also accessible with the convenient `ContainerPage` property
 {% endhint %}
 
-Sometimes you need to set a specific dependency property of the native control:
-
-```csharp
-new Button()
-    .Set(BindableProperty property, object? value);
-```
-
-If you want to set an attached dependency property:
-
-```csharp
-new Button()
-    .SetAttachedProperty(BindableProperty property, object? value);
-```
