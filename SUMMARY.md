@@ -40,7 +40,7 @@
   * [Provide DataTemplate to native controls](components/wrap-3rd-party-controls/provide-datatemplate-to-native-controls.md)
 * [Accessing native controls](components/accessing-native-controls.md)
 * [Animation](components/animation/README.md)
-  * [Property-Base animation](components/animation/property-base-animation.md)
+  * [Property-Based animation](components/animation/property-base-animation.md)
   * [Animation with the AnimationController](components/animation/animation-with-the-animationcontroller.md)
   * [Timer](components/animation/timer.md)
 * [Graphics](components/graphics/README.md)
