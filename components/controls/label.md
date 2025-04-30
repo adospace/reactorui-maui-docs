@@ -15,6 +15,20 @@ Label("My label text")
 Formatted text can be created as well with a code like this:
 
 ```csharp
+Label(
+    FormattedString(
+        Span("Red bold, ", Colors.Red, FontAttributes.Bold),
+        Span("default, ",
+            TapGestureRecognizer(async () => await ContainerPage!.DisplayAlert("Tapped", "This is a tapped Span.", "OK"))
+            ),
+        Span("italic small.", FontAttributes.Italic, 14)
+        )
+    )
+```
+
+If you are on MauiReactor 2, you have to provide a `FormattedString` object explicitly:
+
+```csharp
 Label()
     .FormattedText(()=>
     {
@@ -31,10 +45,10 @@ Label()
     })
 ```
 
-The above code produces a formatted text like the following:
-
-<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
-
 {% hint style="warning" %}
 If the FormattedText object is static (i.e., not changed with the state), consider creating a static variable to pass to the `Label().FormattedText(myStaticVar)` method.
 {% endhint %}
+
+The above code produces a formatted text like the following:
+
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
