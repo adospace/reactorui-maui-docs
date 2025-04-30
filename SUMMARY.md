@@ -42,6 +42,7 @@
 * [Animation](components/animation/README.md)
   * [Property-Base animation](components/animation/property-base-animation.md)
   * [Animation with the AnimationController](components/animation/animation-with-the-animationcontroller.md)
+  * [Timer](components/animation/timer.md)
 * [Graphics](components/graphics/README.md)
   * [CanvasView control](components/graphics/canvasview-control.md)
 * [Window](components/window.md)
