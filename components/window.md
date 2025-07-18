@@ -79,3 +79,34 @@ class MainPage : Component
     }
 }
 ```
+
+## Window Titlebar
+
+> The .NET Multi-platform App UI (.NET MAUI) [TitleBar](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.titlebar) is a view that enables you to add a custom title bar to a [Window](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.window) to match the personality of your app.
+
+This is how you can create and customize the TitleBar in MauiReactor:
+
+```csharp
+Window(
+    Shell(shellRef => _shellRef = shellRef,
+        FlyoutItem("Number Generator", new ThemeSwitcherPage().ThemeChanged(Invalidate)),
+        FlyoutItem("Decision Maker", new ContentPage().Title("Decision Maker")),
+        FlyoutItem("Email Generator", new ContentPage().Title("Email Generator"))
+    )
+    .FlyoutFooter(
+        Label()
+            .Text($"Version: {Microsoft.Maui.ApplicationModel.AppInfo.Current.VersionString}")
+            .HorizontalTextAlignment(TextAlignment.Center)
+    )
+    .ItemTemplate(RenderItemTemplate),
+
+    TitleBar()
+        .Title("Random Generator")
+        .TrailingContent(
+            Button("Settings", async () => await _shellRef!.DisplayAlert("Test App", "Open Settings page!", "OK"))
+                .BackgroundColor(Colors.Transparent)
+                .BorderWidth(0)
+                .VerticalOptions(LayoutOptions.Center)
+        )
+)
+```
