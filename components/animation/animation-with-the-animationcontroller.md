@@ -16,9 +16,9 @@ These are the types of `Animation` available in MauiReactor so far:
 
 * `ParallelAnimation`: executes child animations in parallel
 * `SequenceAnimation`: runs child animations in sequence (i.e. one after another)
-* `DoubleAnimation`: Is a tween animation that fires an event containing a value between 2 doubles (From/To). You can customize how this value is generated using an Easing function.
-* `CubicBezierPathAnimation`: is a tween animation that generates values as Points between StartPoint and EndPoint using a bezier function in which you can control setting ControlPoint1 and ControlPoint2
-* `QuadraticBezierPathAnimation`: is a tween animation similar to the Bezier animation that generates a point between StartPoint and EndPoint using a quadratic bezier function which you can control by setting a ControlPoint
+   * `DoubleAnimation`: Is a tween animation that fires an event containing a value between 2 doubles (From/To). You can customize how this value is generated using an Easing function.
+   * `CubicBezierPathAnimation`: is a tween animation that generates values as Points between StartPoint and EndPoint using a bezier function in which you can control setting ControlPoint1 and ControlPoint2
+   * `QuadraticBezierPathAnimation`: is a tween animation similar to the Bezier animation that generates a point between StartPoint and EndPoint using a quadratic bezier function which you can control by setting a ControlPoint
 
 Each `Animation` has a duration and you can compose them as you like in a tree structure.
 
