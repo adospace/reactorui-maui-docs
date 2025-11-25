@@ -529,5 +529,34 @@ class PageWithArguments : Component<PageWithArgumentsState, PageWithArgumentsPro
 <figure><img src="../../.gitbook/assets/Shell9.gif" alt=""><figcaption><p>Passing arguments to pages</p></figcaption></figure>
 
 {% hint style="info" %}
-If you want to pass arguments to a modal page use the overload of the `Navigation.PushModalAsync<Page, Props>()` method.
+If you want to pass arguments to a modal page, use the overload of the `Navigation.PushModalAsync<Page, Props>()` method.
+{% endhint %}
+
+## Shell TitleView
+
+Shell control enables any `View` to be displayed in the navigation bar using the TitleView. In MauiReactor, you can set up a custom view using the TitleView fluent method of the ContentPage.
+
+```csharp
+public override VisualNode Render()
+    => ContentPage(
+        ....
+    )
+    .TitleView(RenderTitleView);
+
+Grid RenderTitleView()
+    => Grid(
+        Label("Title View")
+            .VCenter()
+            .FontSize(18)
+            .FontAttributes(MauiControls.FontAttributes.Bold)
+            .Margin(10, 0)
+    );    
+```
+
+{% hint style="warning" %}
+ContentPage must be installed inside a Shell to enable the TitleView
+{% endhint %}
+
+{% hint style="info" %}
+You can also customize the Window title with custom content. For more info, refer to the [Window control page](../window.md).
 {% endhint %}
