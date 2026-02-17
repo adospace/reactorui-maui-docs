@@ -1,5 +1,6 @@
 ---
 description: Describes how to setup a MauiReactor project
+hidden: true
 ---
 
 # Getting Started Version 2

@@ -1,8 +1,9 @@
 ---
 description: Describes the list of changes present in Version 2 of MauiReactor
+hidden: true
 ---
 
-# What's New in Version 2
+# What's new in Version 2
 
 MauiReactor 2 is the new version of MauiReactor targeting .NET 8. It contains some good improvements, many of which are under the hood. \
 \
